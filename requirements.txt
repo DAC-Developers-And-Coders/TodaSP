@@ -1,3 +1,7 @@
+geopy
+scrapy
+pymongo
 requests
 tabulate
+curl_cffi
 python-dotenv

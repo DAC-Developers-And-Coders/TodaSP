@@ -2,6 +2,7 @@ import os
 import sys
 
 from API.OlhoVivoAPI import OlhoVivoAPI
+from API.TransitlandAPI import TransitlandAPI
 from API.TrilhosAgoraAPI import TrilhosAgoraAPI
 from Utils.Utils import clear_terminal, colored_text, BOLD, RESET
 
@@ -9,9 +10,10 @@ class MenuManager:
     def __init__(self):
         self.menuString = [f"======== Toda{colored_text('S', '#ff2828')}"
                            f"{BOLD}{colored_text('P', '#028a38')}{BOLD} ========",
-                           "|[1] - Linhas de Metrô", "|[0] - Sair\n"]
+                           "|[1] - Linhas de Metrô", "|[2] - Pontos de Ônibus", "|[0] - Sair\n"]
 
         self.olhoVivoAPI = OlhoVivoAPI()
+        self.transitlandAPI = TransitlandAPI()
         self.trilhosAgoraAPI = TrilhosAgoraAPI()
         self.start_menu()
 
@@ -36,6 +38,9 @@ class MenuManager:
                 case 1:
                     clear_terminal()
                     self.trilhosAgoraAPI.get_all_lines()
+                case 2:
+                    clear_terminal()
+                    self.transitlandAPI.get_all_stops()
                 case 0:
                     clear_terminal()
                     print("Sistema encerrado.")

@@ -41,7 +41,7 @@ class TrilhosAgoraAPI:
 
             if option == "0":
                 clear_terminal()
-            elif int(option) not in keys:
+            elif option not in keys:
                 print("\nOpção inválida.")
                 input("Pressione ENTER para voltar ao menu.")
                 clear_terminal()
