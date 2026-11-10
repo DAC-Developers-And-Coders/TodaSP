@@ -1,6 +1,8 @@
 import os
 import sys
 
+from API.PiranotAPI import PiranotAPI
+from API.GeoSampaWFS import GeoSampaWFS
 from API.OlhoVivoAPI import OlhoVivoAPI
 from API.TransitlandAPI import TransitlandAPI
 from API.TrilhosAgoraAPI import TrilhosAgoraAPI
@@ -10,8 +12,12 @@ class MenuManager:
     def __init__(self):
         self.menuString = [f"======== Toda{colored_text('S', '#ff2828')}"
                            f"{BOLD}{colored_text('P', '#028a38')}{BOLD} ========",
-                           "|[1] - Linhas de Metrô", "|[2] - Pontos de Ônibus", "|[0] - Sair\n"]
+                           "|[1] - Linhas de Metrô", "|[2] - Pontos de Ônibus", "|[3] - Delegacias de polícia",
+                           "|[4] - Ocorrências Criminais",
+                           "|[0] - Sair\n"]
 
+        self.piranotAPI = PiranotAPI()
+        self.geoSampaWFS = GeoSampaWFS()
         self.olhoVivoAPI = OlhoVivoAPI()
         self.transitlandAPI = TransitlandAPI()
         self.trilhosAgoraAPI = TrilhosAgoraAPI()
@@ -41,6 +47,12 @@ class MenuManager:
                 case 2:
                     clear_terminal()
                     self.transitlandAPI.get_all_stops()
+                case 3:
+                    clear_terminal()
+                    self.geoSampaWFS.get_all_police_offices()
+                case 4:
+                    clear_terminal()
+                    self.piranotAPI.get_police_reports()
                 case 0:
                     clear_terminal()
                     print("Sistema encerrado.")
