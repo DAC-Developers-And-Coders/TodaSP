@@ -10,6 +10,7 @@ class PiranotAPI:
 
         self.URL = "https://www.piranot.com.br/datax/api/v1/seguranca/ssp-sp/dp"
         self.headers = {"X-Api-Key": self.key}
+        self.dps = []
 
         os.makedirs("data", exist_ok=True)
 
@@ -28,7 +29,13 @@ class PiranotAPI:
             data = response.json()
 
             for dp in data.get("dps", []):
-                self.get_dp_number(dp["nome"])
+                dp_number = self.get_dp_number(dp["nome"])
+
+                if dp_number and dp_number not in self.dps:
+                    dp_regular_number = dp_number.lstrip("0")
+                    self.dps.append(dp_regular_number)
+
+                    print(dp_regular_number)
 
             with open("data/police_reports.json", "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=4)
