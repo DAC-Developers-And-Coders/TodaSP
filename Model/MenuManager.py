@@ -16,11 +16,12 @@ class MenuManager:
                            "|[4] - Ocorrências Criminais",
                            "|[0] - Sair\n"]
 
-        self.piranotAPI = PiranotAPI()
-        self.geoSampaWFS = GeoSampaWFS()
-        self.olhoVivoAPI = OlhoVivoAPI()
-        self.transitlandAPI = TransitlandAPI()
-        self.trilhosAgoraAPI = TrilhosAgoraAPI()
+        self.piranot_api = PiranotAPI()
+        self.olho_vivo_api = OlhoVivoAPI()
+        self.transitland_api = TransitlandAPI()
+        self.trilhos_agora_api = TrilhosAgoraAPI()
+        self.geo_sampa_wfs = GeoSampaWFS(self.piranot_api)
+
         self.start_menu()
 
     def draw_menu(self):
@@ -40,19 +41,19 @@ class MenuManager:
             match int(option):
                 case 10:
                     clear_terminal()
-                    self.olhoVivoAPI.authenticate()
+                    self.olho_vivo_api.authenticate()
                 case 1:
                     clear_terminal()
-                    self.trilhosAgoraAPI.get_all_lines()
+                    self.trilhos_agora_api.get_all_lines()
                 case 2:
                     clear_terminal()
-                    self.transitlandAPI.get_all_stops()
+                    self.transitland_api.get_all_stops()
                 case 3:
                     clear_terminal()
-                    self.geoSampaWFS.get_all_police_offices()
+                    self.geo_sampa_wfs.get_all_police_offices()
                 case 4:
                     clear_terminal()
-                    self.piranotAPI.get_police_reports()
+                    self.piranot_api.get_police_reports()
                 case 0:
                     clear_terminal()
                     print("Sistema encerrado.")
