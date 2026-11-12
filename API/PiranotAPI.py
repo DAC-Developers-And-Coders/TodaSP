@@ -14,7 +14,7 @@ class PiranotAPI:
 
         os.makedirs("data", exist_ok=True)
 
-    def get_police_reports(self):
+    def get_police_station_ids(self):
         if not self.key:
             raise ValueError("Key da Piranot não encontrada.")
 

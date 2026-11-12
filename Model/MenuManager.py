@@ -6,6 +6,7 @@ from API.GeoSampaWFS import GeoSampaWFS
 from API.OlhoVivoAPI import OlhoVivoAPI
 from API.TransitlandAPI import TransitlandAPI
 from API.TrilhosAgoraAPI import TrilhosAgoraAPI
+from API.DadosAbertosAPI import DadosAbertosAPI
 from Utils.Utils import clear_terminal, colored_text, BOLD, RESET
 
 class MenuManager:
@@ -14,12 +15,14 @@ class MenuManager:
                            f"{BOLD}{colored_text('P', '#028a38')}{BOLD} ========",
                            "|[1] - Linhas de Metrô", "|[2] - Pontos de Ônibus", "|[3] - Delegacias de polícia",
                            "|[4] - Ocorrências Criminais",
+                           "|[5] - Estabelecimentos de Saúde",
                            "|[0] - Sair\n"]
 
         self.piranot_api = PiranotAPI()
         self.olho_vivo_api = OlhoVivoAPI()
         self.transitland_api = TransitlandAPI()
         self.trilhos_agora_api = TrilhosAgoraAPI()
+        self.dados_abertos_api = DadosAbertosAPI()
         self.geo_sampa_wfs = GeoSampaWFS(self.piranot_api)
 
         self.start_menu()
@@ -53,7 +56,10 @@ class MenuManager:
                     self.geo_sampa_wfs.get_all_police_offices()
                 case 4:
                     clear_terminal()
-                    self.piranot_api.get_police_reports()
+                    self.piranot_api.get_police_station_ids()
+                case 5:
+                    clear_terminal()
+                    self.dados_abertos_api.get_all_health_facilities()
                 case 0:
                     clear_terminal()
                     print("Sistema encerrado.")

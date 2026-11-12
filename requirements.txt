@@ -1,6 +1,7 @@
 geopy
 scrapy
 pymongo
+pydantic
 requests
 tabulate
 curl_cffi
