@@ -7,6 +7,7 @@ from API.OlhoVivoAPI import OlhoVivoAPI
 from API.TransitlandAPI import TransitlandAPI
 from API.TrilhosAgoraAPI import TrilhosAgoraAPI
 from API.DadosAbertosAPI import DadosAbertosAPI
+from Reader.ObservaSampaReader import ObservaSampaReader
 from Utils.Utils import clear_terminal, colored_text, BOLD, RESET
 
 class MenuManager:
@@ -16,6 +17,9 @@ class MenuManager:
                            "|[1] - Linhas de Metrô", "|[2] - Pontos de Ônibus", "|[3] - Delegacias de polícia",
                            "|[4] - Ocorrências Criminais",
                            "|[5] - Estabelecimentos de Saúde",
+                           "|[6] - Ler dados de alagamentos",
+                           "|[7] - Ler dados da população",
+                           "|[8] - Ler dados de população e alagamentos de distritos e subprefeituras de São Paulo",
                            "|[0] - Sair\n"]
 
         self.piranot_api = PiranotAPI()
@@ -24,6 +28,7 @@ class MenuManager:
         self.trilhos_agora_api = TrilhosAgoraAPI()
         self.dados_abertos_api = DadosAbertosAPI()
         self.geo_sampa_wfs = GeoSampaWFS(self.piranot_api)
+        self.observa_sampa_reader = ObservaSampaReader()
 
         self.start_menu()
 
@@ -60,6 +65,15 @@ class MenuManager:
                 case 5:
                     clear_terminal()
                     self.dados_abertos_api.get_all_health_facilities()
+                case 6:
+                    clear_terminal()
+                    self.observa_sampa_reader.read_flood_data()
+                case 7:
+                    clear_terminal()
+                    self.observa_sampa_reader.read_population_data()
+                case 8:
+                    clear_terminal()
+                    self.observa_sampa_reader.read_all_data()
                 case 0:
                     clear_terminal()
                     print("Sistema encerrado.")
