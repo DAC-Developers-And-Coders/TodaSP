@@ -51,6 +51,11 @@ class DadosAbertosAPI:
 
                     legal_nature_code = facility["descricao_natureza_juridica_estabelecimento"]
 
+                    if facility["bairro_estabelecimento"] == "SAO PAULO":
+                        bairro = None
+                    else:
+                        bairro = facility["bairro_estabelecimento"]
+
                     health_facility = HealthFacility(
                         cnes_id=facility_id,
                         razao_social=facility["nome_razao_social"],
@@ -61,7 +66,7 @@ class DadosAbertosAPI:
                         cep=facility["codigo_cep_estabelecimento"],
                         endereco=facility["endereco_estabelecimento"],
                         numero=facility["numero_estabelecimento"],
-                        bairro=facility["bairro_estabelecimento"],
+                        bairro=bairro,
                         latitude=facility["latitude_estabelecimento_decimo_grau"],
                         longitude=facility["longitude_estabelecimento_decimo_grau"],
                         codigo_natureza_juridica=legal_nature_code,
