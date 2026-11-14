@@ -32,25 +32,15 @@ class PiranotAPI:
                 dp_number = self.get_dp_number(dp["nome"])
 
                 if dp_number and dp_number not in self.dps_numbers_ids:
-                    dp_regular_number = dp_number.lstrip("0")
-                    self.dps_numbers_ids[dp["id"]] = dp_regular_number
+                    #dp_regular_number = dp_number.lstrip("0")
+                    self.dps_numbers_ids[dp["id"]] = dp_number
 
-            with open("data/police_stations_id.json", "w", encoding="utf-8") as f:
-                json.dump(data, f, ensure_ascii=False, indent=4)
-
-            print()
-
-            input("Pressione ENTER para voltar ao menu.")
             clear_terminal()
 
-        except requests.RequestException as error:
-            print(f"Erro na busca: {error}")
-
-            input("Pressione ENTER para voltar ao menu.")
+        except Exception:
             clear_terminal()
-            return False
 
-    def get_police_reports_by_number(self, number):
+    def get_police_reports_by_station(self, number):
         if not self.key:
             raise ValueError("Key da Piranot não encontrada.")
 
@@ -76,27 +66,25 @@ class PiranotAPI:
 
             data = response.json()
 
-            print(f"Ocorrências criminais encontradas para : {data.get('dp').get('nome')}\n")
+            natures = {}
 
-            for natureza in data.get('naturezas', []):
-                print(f"Natureza: {natureza.get('nome')}, Quantidade Último Mês: {natureza.get('ultimo_mes').get("valor")}, "
-                      f"Quantidade {natureza.get('acumulado').get('ano')}: {natureza.get('acumulado').get('atual')}")
+            for n in data.get('naturezas', []):
+                nature_id = int(n.get('id'))
 
-            with open(f"data/police_reports_{dp_id}.json", "w", encoding="utf-8") as f:
-                json.dump(data.get('naturezas', []), f, ensure_ascii=False, indent=4)
+                if nature_id not in natures:
+                    natures[nature_id] = {
+                        "Nome": n.get('nome'),
+                        "Ano": n.get('acumulado').get('ano'),
+                        "QuantidadeAno": n.get('acumulado').get('atual'),
+                        "QuantidadeMes": n.get('ultimo_mes').get('valor')
+                    }
 
-            print()
+            return natures
 
-            input("Pressione ENTER para voltar ao menu.")
-            clear_terminal()
-            return True
-
-        except requests.RequestException as error:
+        except Exception as error:
             print(f"Erro na busca: {error}")
-
-            input("Pressione ENTER para voltar ao menu.")
             clear_terminal()
-            return False
+            return None
 
     def get_dp_id(self, number):
         for dp_id, dp_number in self.dps_numbers_ids.items():
@@ -110,6 +98,6 @@ class PiranotAPI:
 
         if string_match:
             dp = string_match.group(0).partition(" DP -")[0]
-            return dp
+            return int(dp)
 
         return None

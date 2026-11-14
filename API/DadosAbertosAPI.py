@@ -1,13 +1,23 @@
-import json
-import requests
+import json, requests
 
+from Model.HealthFacility import HealthFacility
 from Utils.Utils import clear_terminal, BOLD, RESET, LEGAL_NATURE, FACILITIES_CODES
 
 class DadosAbertosAPI:
-    def __init__(self):
+    def __init__(self, mongo_db):
         self.URL = "https://apidadosabertos.saude.gov.br/cnes"
         self.headers = {"accept": "application/json"}
         self.facilities_codes_set = {code for codes in FACILITIES_CODES.values() for code in codes}
+
+        self.mongo_db = mongo_db
+
+    @staticmethod
+    def get_legal_nature(code):
+        return next((k for k, v in LEGAL_NATURE.items() if code in v), None)
+
+    @staticmethod
+    def get_facility_type(code):
+        return next((k for k, v in FACILITIES_CODES.items() if code in v), None)
 
     def get_all_health_facilities(self):
         print(f'{BOLD}Checando os estabelecimentos de saúde na cidade de  SÃO PAULO{RESET}\n')
@@ -20,8 +30,7 @@ class DadosAbertosAPI:
             'offset': 0
         }
 
-        facilities = []
-        seen_ids = set()
+        facility_counter = 0
 
         try:
             while True:
@@ -33,25 +42,40 @@ class DadosAbertosAPI:
                 if not data:
                     break
 
-                current_facilities = []
-
                 for facility in data:
                     facility_id = facility["codigo_cnes"]
+                    facility_type_code = facility["codigo_tipo_unidade"]
 
-                    if facility_id in seen_ids:
+                    if facility_type_code not in self.facilities_codes_set:
                         continue
 
-                    seen_ids.add(facility_id)
+                    legal_nature_code = facility["descricao_natureza_juridica_estabelecimento"]
 
-                    if facility["codigo_tipo_unidade"] in self.facilities_codes_set:
-                        current_facilities.append(facility)
+                    health_facility = HealthFacility(
+                        cnes_id=facility_id,
+                        razao_social=facility["nome_razao_social"],
+                        nome_fantasia=facility["nome_fantasia"],
+                        esfera_administrativa=facility["descricao_esfera_administrativa"],
+                        codigo_tipo=facility_type_code,
+                        tipo=self.get_facility_type(facility_type_code),
+                        cep=facility["codigo_cep_estabelecimento"],
+                        endereco=facility["endereco_estabelecimento"],
+                        numero=facility["numero_estabelecimento"],
+                        bairro=facility["bairro_estabelecimento"],
+                        latitude=facility["latitude_estabelecimento_decimo_grau"],
+                        longitude=facility["longitude_estabelecimento_decimo_grau"],
+                        codigo_natureza_juridica=legal_nature_code,
+                        natureza_juridica=self.get_legal_nature(legal_nature_code),
+                        data_informacoes=facility["data_atualizacao"]
+                    )
 
-                facilities.extend(current_facilities)
+                    self.mongo_db.insert_health_facility(health_facility)
+
+                    facility_counter += 1
 
                 print(
                     f"Página {parameters['offset'] + 1}: "
-                    f"{len(current_facilities)} estabelecimentos coletados "
-                    f"| Total: {len(facilities)}"
+                    f"| Total: {facility_counter}"
                 )
 
                 if len(data) < parameters["limit"]:
@@ -59,17 +83,12 @@ class DadosAbertosAPI:
 
                 parameters["offset"] += 1
 
-            with open("data/health_facilities.json", "w", encoding="utf-8") as f:
-                json.dump(facilities, f, ensure_ascii=False, indent=4)
+            print(f"\nTotal coletado: {facility_counter} estabelecimentos.")
 
-            print(f"\nTotal coletado: {len(facilities)} estabelecimentos.")
-
-            print()
-
-            input("Pressione ENTER para voltar ao menu.")
+            input("\nPressione ENTER para voltar ao menu.")
             clear_terminal()
 
-        except requests.RequestException as error:
+        except Exception as error:
             print(f"Erro na busca: {error}")
 
             input("Pressione ENTER para voltar ao menu.")

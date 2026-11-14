@@ -1,1826 +1,1058 @@
 {
     "Água Rasa (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 74199,
-            "Idosos": 22952,
-            "Total": 85993,
-            "Criancas": 11794
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 1,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.23,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Alto de Pinheiros (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 33281,
-            "Idosos": 12293,
-            "Total": 36987,
-            "Criancas": 3706
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.27,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Anhanguera (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 62648,
-            "Idosos": 8824,
-            "Total": 75967,
-            "Criancas": 13319
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 5,
             "CasosAlagamento": 1,
-            "CasosTotais": 6,
-            "RiscoHidrologico": 0.79,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 6
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Aricanduva (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 76374,
-            "Idosos": 19884,
-            "Total": 89499,
-            "Criancas": 13125
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 5,
             "CasosAlagamento": 0,
-            "CasosTotais": 5,
-            "RiscoHidrologico": 0.56,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 5
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Artur Alvim (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 79749,
-            "Idosos": 19518,
-            "Total": 93634,
-            "Criancas": 13885
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 1,
-            "CasosTotais": 3,
-            "RiscoHidrologico": 0.32,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 3
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Barra Funda (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 30992,
-            "Idosos": 8280,
-            "Total": 36499,
-            "Criancas": 5507
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Bela Vista (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 50713,
-            "Idosos": 13654,
-            "Total": 58525,
-            "Criancas": 7812
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Belém (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 46159,
-            "Idosos": 11823,
-            "Total": 57248,
-            "Criancas": 11089
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.17,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Bom Retiro (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 27099,
-            "Idosos": 5845,
-            "Total": 33179,
-            "Criancas": 6080
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 1,
-            "CasosTotais": 3,
-            "RiscoHidrologico": 0.9,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 3
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Brás (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 31976,
-            "Idosos": 6431,
-            "Total": 39822,
-            "Criancas": 7846
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Brasilândia (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 187093,
-            "Idosos": 32286,
-            "Total": 234740,
-            "Criancas": 47647
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 10,
             "CasosAlagamento": 4,
-            "CasosTotais": 14,
-            "RiscoHidrologico": 0.6,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 14
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Butantã (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 44955,
-            "Idosos": 13331,
-            "Total": 51323,
-            "Criancas": 6368
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cachoeirinha (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 114680,
-            "Idosos": 22280,
-            "Total": 141097,
-            "Criancas": 26417
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 2,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.28,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cambuci (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 39373,
-            "Idosos": 10189,
-            "Total": 46497,
-            "Criancas": 7124
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Campo Belo (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 63020,
-            "Idosos": 20412,
-            "Total": 72325,
-            "Criancas": 9305
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 0,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.28,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Campo Grande (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 102169,
-            "Idosos": 27275,
-            "Total": 118297,
-            "Criancas": 16128
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 4,
             "CasosAlagamento": 9,
-            "CasosTotais": 13,
-            "RiscoHidrologico": 1.1,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 13
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Campo Limpo (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 195411,
-            "Idosos": 35305,
-            "Total": 237221,
-            "Criancas": 41810
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 5,
             "CasosAlagamento": 0,
-            "CasosTotais": 5,
-            "RiscoHidrologico": 0.21,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 5
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cangaíba (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 117027,
-            "Idosos": 26392,
-            "Total": 140824,
-            "Criancas": 23797
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 2,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.28,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Capão Redondo (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 217045,
-            "Idosos": 37245,
-            "Total": 266833,
-            "Criancas": 49788
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 10,
             "CasosAlagamento": 3,
-            "CasosTotais": 13,
-            "RiscoHidrologico": 0.49,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 13
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Carrão (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 73760,
-            "Idosos": 21791,
-            "Total": 84724,
-            "Criancas": 10964
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 5,
             "CasosAlagamento": 5,
-            "CasosTotais": 10,
-            "RiscoHidrologico": 1.18,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 10
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Casa Verde (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 66754,
-            "Idosos": 17627,
-            "Total": 79301,
-            "Criancas": 12547
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cidade Ademar (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 198195,
-            "Idosos": 37861,
-            "Total": 242478,
-            "Criancas": 44283
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 16,
             "CasosAlagamento": 10,
-            "CasosTotais": 26,
-            "RiscoHidrologico": 1.07,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 26
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cidade Dutra (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 147880,
-            "Idosos": 30675,
-            "Total": 178182,
-            "Criancas": 30302
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 18,
             "CasosAlagamento": 6,
-            "CasosTotais": 24,
-            "RiscoHidrologico": 1.35,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 24
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cidade Líder (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 113980,
-            "Idosos": 22998,
-            "Total": 136921,
-            "Criancas": 22941
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 13,
             "CasosAlagamento": 4,
-            "CasosTotais": 17,
-            "RiscoHidrologico": 1.24,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 17
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cidade Tiradentes (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 152113,
-            "Idosos": 23801,
-            "Total": 188093,
-            "Criancas": 35980
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 11,
             "CasosAlagamento": 1,
-            "CasosTotais": 12,
-            "RiscoHidrologico": 0.64,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 12
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Consolação (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 47941,
-            "Idosos": 15520,
-            "Total": 53270,
-            "Criancas": 5329
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.19,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Cursino (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 87405,
-            "Idosos": 25026,
-            "Total": 101967,
-            "Criancas": 14562
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.1,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Ermelino Matarazzo (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 91950,
-            "Idosos": 18465,
-            "Total": 111031,
-            "Criancas": 19081
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 4,
             "CasosAlagamento": 6,
-            "CasosTotais": 10,
-            "RiscoHidrologico": 0.9,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 10
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Freguesia do Ó (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 114730,
-            "Idosos": 29495,
-            "Total": 135671,
-            "Criancas": 20941
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 1,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.15,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Grajaú (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 307549,
-            "Idosos": 48659,
-            "Total": 382255,
-            "Criancas": 74706
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 12,
             "CasosAlagamento": 7,
-            "CasosTotais": 19,
-            "RiscoHidrologico": 0.5,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 19
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Guaianases (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 87389,
-            "Idosos": 15110,
-            "Total": 108377,
-            "Criancas": 20988
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 12,
             "CasosAlagamento": 3,
-            "CasosTotais": 15,
-            "RiscoHidrologico": 1.38,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 15
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Iguatemi (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 121100,
-            "Idosos": 19347,
-            "Total": 151235,
-            "Criancas": 30135
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 24,
             "CasosAlagamento": 7,
-            "CasosTotais": 31,
-            "RiscoHidrologico": 2.05,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 31
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Ipiranga (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 101039,
-            "Idosos": 27494,
-            "Total": 117874,
-            "Criancas": 16835
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 0,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.17,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Itaim Bibi (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 91028,
-            "Idosos": 29370,
-            "Total": 103780,
-            "Criancas": 12752
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 2,
-            "CasosTotais": 3,
-            "RiscoHidrologico": 0.29,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 3
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Itaim Paulista (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 161960,
-            "Idosos": 28378,
-            "Total": 198999,
-            "Criancas": 37039
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 7,
             "CasosAlagamento": 4,
-            "CasosTotais": 11,
-            "RiscoHidrologico": 0.55,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 11
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Itaquera (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 172904,
-            "Idosos": 34094,
-            "Total": 209668,
-            "Criancas": 36764
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 30,
             "CasosAlagamento": 9,
-            "CasosTotais": 39,
-            "RiscoHidrologico": 1.86,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 39
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jabaquara (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 178968,
-            "Idosos": 42405,
-            "Total": 212047,
-            "Criancas": 33079
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 14,
             "CasosAlagamento": 10,
-            "CasosTotais": 24,
-            "RiscoHidrologico": 1.13,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 24
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jaçanã (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 72183,
-            "Idosos": 15932,
-            "Total": 85579,
-            "Criancas": 13396
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jaguara (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 21185,
-            "Idosos": 5943,
-            "Total": 24715,
-            "Criancas": 3530
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jaguaré (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 46901,
-            "Idosos": 9967,
-            "Total": 55846,
-            "Criancas": 8945
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.18,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jaraguá (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 173787,
-            "Idosos": 30414,
-            "Total": 213163,
-            "Criancas": 39376
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 5,
             "CasosAlagamento": 5,
-            "CasosTotais": 10,
-            "RiscoHidrologico": 0.47,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 10
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jardim Ângela (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 247638,
-            "Idosos": 36866,
-            "Total": 308554,
-            "Criancas": 60916
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 4,
             "CasosAlagamento": 4,
-            "CasosTotais": 8,
-            "RiscoHidrologico": 0.26,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 8
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jardim Helena (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 100699,
-            "Idosos": 17242,
-            "Total": 126316,
-            "Criancas": 25617
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 34,
             "CasosAlagamento": 89,
-            "CasosTotais": 123,
-            "RiscoHidrologico": 9.74,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 123
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jardim Paulista (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 72638,
-            "Idosos": 24836,
-            "Total": 81830,
-            "Criancas": 9192
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.12,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Jardim São Luís (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 208596,
-            "Idosos": 37238,
-            "Total": 254205,
-            "Criancas": 45609
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 15,
             "CasosAlagamento": 8,
-            "CasosTotais": 23,
-            "RiscoHidrologico": 0.9,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 23
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "José Bonifácio (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 108479,
-            "Idosos": 22078,
-            "Total": 128534,
-            "Criancas": 20055
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 8,
             "CasosAlagamento": 8,
-            "CasosTotais": 16,
-            "RiscoHidrologico": 1.24,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 16
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Lajeado (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 129893,
-            "Idosos": 20984,
-            "Total": 161642,
-            "Criancas": 31749
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 7,
             "CasosAlagamento": 13,
-            "CasosTotais": 20,
-            "RiscoHidrologico": 1.24,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 20
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Lapa (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 68144,
-            "Idosos": 22203,
-            "Total": 77737,
-            "Criancas": 9593
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.13,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Liberdade (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 56706,
-            "Idosos": 15937,
-            "Total": 65479,
-            "Criancas": 8773
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.15,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Limão (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 67836,
-            "Idosos": 16442,
-            "Total": 82026,
-            "Criancas": 14190
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.12,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Mandaqui (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 88268,
-            "Idosos": 23060,
-            "Total": 102802,
-            "Criancas": 14534
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Marsilac (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 9990,
-            "Idosos": 1989,
-            "Total": 11902,
-            "Criancas": 1912
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.84,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Moema (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 73530,
-            "Idosos": 24858,
-            "Total": 82541,
-            "Criancas": 9011
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 3,
             "CasosAlagamento": 1,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.48,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Moóca (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 70494,
-            "Idosos": 20697,
-            "Total": 81707,
-            "Criancas": 11213
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.12,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Morumbi (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 35740,
-            "Idosos": 9711,
-            "Total": 42623,
-            "Criancas": 6883
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Parelheiros (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 122407,
-            "Idosos": 18841,
-            "Total": 154356,
-            "Criancas": 31949
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 4,
             "CasosAlagamento": 5,
-            "CasosTotais": 9,
-            "RiscoHidrologico": 0.58,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 9
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Pari (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 13980,
-            "Idosos": 3256,
-            "Total": 17321,
-            "Criancas": 3341
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Parque do Carmo (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 61784,
-            "Idosos": 11811,
-            "Total": 74820,
-            "Criancas": 13036
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 11,
             "CasosAlagamento": 4,
-            "CasosTotais": 15,
-            "RiscoHidrologico": 2.0,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 15
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Pedreira (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 136570,
-            "Idosos": 23622,
-            "Total": 165028,
-            "Criancas": 28458
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 13,
             "CasosAlagamento": 4,
-            "CasosTotais": 17,
-            "RiscoHidrologico": 1.03,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 17
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Penha (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 114240,
-            "Idosos": 31417,
-            "Total": 133409,
-            "Criancas": 19169
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.07,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Perdizes (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 90451,
-            "Idosos": 29485,
-            "Total": 101794,
-            "Criancas": 11343
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.1,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Perus (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 70108,
-            "Idosos": 11499,
-            "Total": 87541,
-            "Criancas": 17433
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 2,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.46,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Pinheiros (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 58658,
-            "Idosos": 19793,
-            "Total": 66007,
-            "Criancas": 7349
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Pirituba (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 152555,
-            "Idosos": 36810,
-            "Total": 181007,
-            "Criancas": 28452
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 3,
             "CasosAlagamento": 2,
-            "CasosTotais": 5,
-            "RiscoHidrologico": 0.28,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 5
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Ponte Rasa (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 75305,
-            "Idosos": 18812,
-            "Total": 88640,
-            "Criancas": 13335
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 2,
-            "CasosTotais": 3,
-            "RiscoHidrologico": 0.34,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 3
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Raposo Tavares (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 97027,
-            "Idosos": 18662,
-            "Total": 119088,
-            "Criancas": 22061
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 3,
             "CasosAlagamento": 2,
-            "CasosTotais": 5,
-            "RiscoHidrologico": 0.42,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 5
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "República (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 52629,
-            "Idosos": 13146,
-            "Total": 61058,
-            "Criancas": 8429
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Rio Pequeno (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 107367,
-            "Idosos": 23854,
-            "Total": 132079,
-            "Criancas": 24712
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 5,
             "CasosAlagamento": 4,
-            "CasosTotais": 9,
-            "RiscoHidrologico": 0.68,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 9
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Sacomã (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 222000,
-            "Idosos": 49497,
-            "Total": 262208,
-            "Criancas": 40208
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 2,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.15,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Santa Cecília (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 70040,
-            "Idosos": 19753,
-            "Total": 80819,
-            "Criancas": 10779
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Santana (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 100989,
-            "Idosos": 32502,
-            "Total": 115913,
-            "Criancas": 14924
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 3,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.35,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Santo Amaro (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 77701,
-            "Idosos": 24996,
-            "Total": 88344,
-            "Criancas": 10643
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 4,
-            "CasosTotais": 5,
-            "RiscoHidrologico": 0.57,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 5
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "São Domingos (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 75762,
-            "Idosos": 18017,
-            "Total": 89226,
-            "Criancas": 13464
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 1,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.22,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "São Lucas (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 118216,
-            "Idosos": 31397,
-            "Total": 137250,
-            "Criancas": 19034
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 21,
             "CasosAlagamento": 1,
-            "CasosTotais": 22,
-            "RiscoHidrologico": 1.6,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 22
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "São Mateus (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 128184,
-            "Idosos": 27290,
-            "Total": 154556,
-            "Criancas": 26372
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 9,
             "CasosAlagamento": 2,
-            "CasosTotais": 11,
-            "RiscoHidrologico": 0.71,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 11
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "São Miguel (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 62783,
-            "Idosos": 13634,
-            "Total": 77860,
-            "Criancas": 15077
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 14,
             "CasosAlagamento": 8,
-            "CasosTotais": 22,
-            "RiscoHidrologico": 2.83,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 22
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "São Rafael (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 121286,
-            "Idosos": 20645,
-            "Total": 147185,
-            "Criancas": 25899
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 6,
             "CasosAlagamento": 3,
-            "CasosTotais": 9,
-            "RiscoHidrologico": 0.61,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 9
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Sapopemba (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 216368,
-            "Idosos": 45071,
-            "Total": 260925,
-            "Criancas": 44557
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 16,
             "CasosAlagamento": 7,
-            "CasosTotais": 23,
-            "RiscoHidrologico": 0.88,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 23
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Saúde (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 113893,
-            "Idosos": 37240,
-            "Total": 129107,
-            "Criancas": 15214
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 1,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.08,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Sé (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 18679,
-            "Idosos": 3212,
-            "Total": 23209,
-            "Criancas": 4530
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Socorro (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 32926,
-            "Idosos": 9867,
-            "Total": 38111,
-            "Criancas": 5185
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 5,
             "CasosAlagamento": 1,
-            "CasosTotais": 6,
-            "RiscoHidrologico": 1.57,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 6
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Tatuapé (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 88295,
-            "Idosos": 27068,
-            "Total": 100586,
-            "Criancas": 12291
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 2,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.2,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Tremembé (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 159222,
-            "Idosos": 31611,
-            "Total": 194428,
-            "Criancas": 35206
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 4,
             "CasosAlagamento": 0,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.21,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Tucuruvi (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 87553,
-            "Idosos": 26760,
-            "Total": 100340,
-            "Criancas": 12787
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 11,
             "CasosAlagamento": 0,
-            "CasosTotais": 11,
-            "RiscoHidrologico": 1.1,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 11
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Andrade (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 145508,
-            "Idosos": 23127,
-            "Total": 174102,
-            "Criancas": 28594
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 2,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.23,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Curuçá (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 113615,
-            "Idosos": 20763,
-            "Total": 137675,
-            "Criancas": 24060
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 4,
             "CasosAlagamento": 1,
-            "CasosTotais": 5,
-            "RiscoHidrologico": 0.36,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 5
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Formosa (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 79618,
-            "Idosos": 22998,
-            "Total": 91975,
-            "Criancas": 12357
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.11,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Guilherme (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 43664,
-            "Idosos": 11891,
-            "Total": 52109,
-            "Criancas": 8445
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 1,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.38,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Jacuí (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 110935,
-            "Idosos": 20787,
-            "Total": 131912,
-            "Criancas": 20977
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 30,
             "CasosAlagamento": 20,
-            "CasosTotais": 50,
-            "RiscoHidrologico": 3.79,
-            "NivelRiscoHidrologico": "Alto"
+            "CasosTotais": 50
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Leopoldina (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 41503,
-            "Idosos": 9942,
-            "Total": 47815,
-            "Criancas": 6312
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.21,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Maria (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 87812,
-            "Idosos": 19252,
-            "Total": 106771,
-            "Criancas": 18959
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.09,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Mariana (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 113486,
-            "Idosos": 37893,
-            "Total": 127995,
-            "Criancas": 14509
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 1,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.16,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Matilde (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 88464,
-            "Idosos": 23227,
-            "Total": 103089,
-            "Criancas": 14625
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 1,
             "CasosAlagamento": 0,
-            "CasosTotais": 1,
-            "RiscoHidrologico": 0.1,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 1
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Medeiros (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 93496,
-            "Idosos": 23569,
-            "Total": 111745,
-            "Criancas": 18249
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 0,
             "CasosAlagamento": 0,
-            "CasosTotais": 0,
-            "RiscoHidrologico": 0.0,
-            "NivelRiscoHidrologico": "Muito Baixo"
+            "CasosTotais": 0
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Prudente (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 91691,
-            "Idosos": 25664,
-            "Total": 106187,
-            "Criancas": 14496
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 2,
-            "CasosTotais": 4,
-            "RiscoHidrologico": 0.38,
-            "NivelRiscoHidrologico": "Moderado"
+            "CasosTotais": 4
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "Vila Sônia (Distrito)": {
-        "Populacao": {
-            "AcimaDe15Anos": 104963,
-            "Idosos": 24631,
-            "Total": 125416,
-            "Criancas": 20453
-        },
+        "Populacao": {},
         "Alagamentos": {
             "CasosInundacao": 2,
             "CasosAlagamento": 0,
-            "CasosTotais": 2,
-            "RiscoHidrologico": 0.16,
-            "NivelRiscoHidrologico": "Baixo"
+            "CasosTotais": 2
         },
         "AnosInformacoes": [
-            2023,
-            2024
+            2023
         ]
     },
     "ARICANDUVA-FORMOSA-CARRÃO (Subprefeitura)": {
