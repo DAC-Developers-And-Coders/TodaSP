@@ -1,8 +1,10 @@
 import json
 from statistics import quantiles
+from Model.District import District
+from Model.Subprefecture import Subprefecture
 
 class ObservaSampaReader:
-    def __init__(self):
+    def __init__(self, mongo_db):
         self.file_path = "data/ObservaSampaDadosAbertosIndicadoresJSON.json"
 
         self.useful_flood_data_names = [
@@ -17,6 +19,7 @@ class ObservaSampaReader:
             "População com 15 anos ou mais"
         ]
 
+        self.mongo_db = mongo_db
         self.regions_data = {}
 
     def get_region(self, name):
@@ -29,12 +32,8 @@ class ObservaSampaReader:
 
         return self.regions_data[name]
 
-    def save_regions_data(self):
-        with open("data/regions_data.json", "w", encoding="utf-8") as of:
-            json.dump(self.regions_data, of, ensure_ascii=False, indent=4)
-
     def read_flood_data(self):
-        data = self.read_data("flood", self.useful_flood_data_names, "data/flood_data.json")
+        data = self.read_data("flood", self.useful_flood_data_names)
 
         if data == []:
             return
@@ -60,10 +59,8 @@ class ObservaSampaReader:
             if "CasosInundacao" in floods and "CasosAlagamento" in floods:
                 floods["CasosTotais"] = floods["CasosInundacao"] + floods["CasosAlagamento"]
 
-        self.save_regions_data()
-
     def read_population_data(self):
-        data = self.read_data("population", self.useful_population_data_names, "data/population_data.json")
+        data = self.read_data("population", self.useful_population_data_names)
 
         if data == []:
             return
@@ -89,8 +86,6 @@ class ObservaSampaReader:
             if "Total" in population and "AcimaDe15Anos" in population:
                 population["Criancas"] = population["Total"] - population["AcimaDe15Anos"]
 
-        self.save_regions_data()
-
     def read_all_data(self):
         self.read_flood_data()
         self.read_population_data()
@@ -99,7 +94,7 @@ class ObservaSampaReader:
         risks = []
 
         for region, d in self.regions_data.items():
-            if region.endswith("(Subprefeitura)"):
+            if not region.endswith("(Distrito)"):
                 continue
 
             floods = d["Alagamentos"]
@@ -107,28 +102,61 @@ class ObservaSampaReader:
 
             risk = self.calculate_hydrological_risk(floods["CasosTotais"], population["Total"])
 
-            floods["RiscoHidrologico"] = round(risk, 2)
+            districts.append({
+                "nome": region.replace(" (Distrito)", ""),
+                "populacao": population["Total"],
+                "populacao_idosa": population["Idosos"],
+                "populacao_criancas": population["Criancas"],
+                "casos_alagamentos": floods["CasosTotais"],
+                "risco_hidrologico": round(risk, 2),
+                "anos_informacoes": d["AnosInformacoes"]
+            })
 
-            districts.append(floods)
             risks.append(risk)
 
+        for region, d in self.regions_data.items():
+            if not region.endswith("(Subprefeitura)"):
+                continue
+
+            floods = d["Alagamentos"]
+
+            subprefecture = Subprefecture(
+                nome=region.replace(" (Subprefeitura)", ""),
+                area_risco_hidrologico=floods["AreaRiscoHidrologico"],
+                anos_informacoes=d["AnosInformacoes"]
+            )
+
+            self.mongo_db.insert_subprefecture(subprefecture)
+
+        self.define_hydrological_risk(districts)
+
+    def define_hydrological_risk(self, districts):
+        if not districts:
+            return
+
+        risks = [d["risco_hidrologico"] for d in districts]
         l1, l2, l3 = quantiles(risks, n=4, method="inclusive")
 
         for d in districts:
-            risk = d["RiscoHidrologico"]
+            risk = d["risco_hidrologico"]
 
             if risk <= l1:
-                d["NivelRiscoHidrologico"] = "Muito Baixo"
+                level = "Muito Baixo"
             elif risk <= l2:
-                d["NivelRiscoHidrologico"] = "Baixo"
+                level = "Baixo"
             elif risk <= l3:
-                d["NivelRiscoHidrologico"] = "Moderado"
+                level = "Moderado"
             else:
-                d["NivelRiscoHidrologico"] = "Alto"
+                level = "Alto"
 
-        self.save_regions_data()
+            district = District(
+                **d,
+                nivel_risco_hidrologico=level
+            )
 
-    def read_data(self, data_type: str, useful_data_names, output_file_path: str):
+            self.mongo_db.insert_district(district)
+
+    def read_data(self, data_type: str, useful_data_names):
         try:
             with open(self.file_path, "r", encoding="utf-8") as f:
                 data = json.load(f)
@@ -171,9 +199,6 @@ class ObservaSampaReader:
                 for record in records.values()
             ]
 
-            with open(output_file_path, "w", encoding="utf-8") as of:
-                json.dump(useful_data, of, ensure_ascii=False, indent=4)
-
             return useful_data
         except Exception as e:
             print(f"Erro ao ler o arquivo JSON: {e}")
@@ -186,4 +211,7 @@ class ObservaSampaReader:
 
     @staticmethod
     def calculate_hydrological_risk(flood_cases, population):
+        if population <= 0:
+            return 0
+
         return (flood_cases / population) * 10000

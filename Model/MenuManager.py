@@ -27,8 +27,8 @@ class MenuManager:
         self.olho_vivo_api = OlhoVivoAPI()
         self.transitland_api = TransitlandAPI()
         self.trilhos_agora_api = TrilhosAgoraAPI()
-        self.observa_sampa_reader = ObservaSampaReader()
         self.dados_abertos_api = DadosAbertosAPI(self.mongo_db)
+        self.observa_sampa_reader = ObservaSampaReader(self.mongo_db)
         self.geo_sampa_wfs = GeoSampaWFS(self.piranot_api, self.mongo_db)
 
         self.start_menu()

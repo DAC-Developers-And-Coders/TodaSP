@@ -1,5 +1,7 @@
 from pymongo import MongoClient
+from Model.District import District
 from Model.PoliceReport import PoliceReport
+from Model.Subprefecture import Subprefecture
 from Model.PoliceStation import PoliceStation
 from Model.HealthFacility import HealthFacility
 
@@ -12,6 +14,8 @@ class MongoDB:
 
         self.database['health_facilities'].create_index("cnes_id", unique=True)
         self.database['police_stations'].create_index("numero_dp", unique=True)
+        self.database['subprefectures'].create_index("nome", unique=True)
+        self.database['districts'].create_index("nome", unique=True)
 
     def insert_health_facility(self, health_facility: HealthFacility):
         collection = self.database['health_facilities']
@@ -31,3 +35,15 @@ class MongoDB:
         collection.update_one({"numero_dp": number}, {"$set": {"casos": [
             report.model_dump(by_alias=True) for report in reports
         ]}}, upsert=False)
+
+    def insert_district(self, district: District):
+        collection = self.database['districts']
+        data = district.model_dump(by_alias=True)
+
+        collection.update_one({"nome": data["nome"]}, {"$set": data}, upsert=True)
+
+    def insert_subprefecture(self, subprefecture: Subprefecture):
+        collection = self.database['subprefectures']
+        data = subprefecture.model_dump(by_alias=True)
+
+        collection.update_one({"nome": data["nome"]}, {"$set": data}, upsert=True)
