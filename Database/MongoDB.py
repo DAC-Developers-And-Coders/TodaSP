@@ -1,4 +1,6 @@
 from pymongo import MongoClient
+from Model.PoliceReport import PoliceReport
+from Model.PoliceStation import PoliceStation
 from Model.HealthFacility import HealthFacility
 
 class MongoDB:
@@ -9,9 +11,23 @@ class MongoDB:
         self.database = self.client['todasp']
 
         self.database['health_facilities'].create_index("cnes_id", unique=True)
+        self.database['police_stations'].create_index("numero_dp", unique=True)
 
     def insert_health_facility(self, health_facility: HealthFacility):
         collection = self.database['health_facilities']
         facility = health_facility.model_dump(by_alias=True)
 
         collection.update_one({"cnes_id": facility["cnes_id"]}, {"$set": facility}, upsert=True)
+
+    def insert_police_station(self, police_station: PoliceStation):
+        collection = self.database['police_stations']
+        station = police_station.model_dump(by_alias=True, exclude={"reports"})
+
+        collection.update_one({"numero_dp": station["numero_dp"]}, {"$set": station}, upsert=True)
+
+    def insert_police_station_reports(self, number: int, reports: list[PoliceReport]):
+        collection = self.database['police_stations']
+
+        collection.update_one({"numero_dp": number}, {"$set": {"casos": [
+            report.model_dump(by_alias=True) for report in reports
+        ]}}, upsert=False)

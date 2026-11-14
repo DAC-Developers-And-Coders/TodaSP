@@ -2,6 +2,7 @@ import os, re, json, requests
 from dotenv import load_dotenv
 
 from Utils.Utils import clear_terminal
+from Model.PoliceReport import PoliceReport
 
 class PiranotAPI:
     def __init__(self):
@@ -57,8 +58,8 @@ class PiranotAPI:
             "dp": dp_id
         }
 
-        with open("data/ids.txt", "a", encoding="utf-8") as f:
-            f.write(f"DP ID: {dp_id}\n")
+        #with open("data/ids.txt", "a", encoding="utf-8") as f:
+            #f.write(f"DP ID: {dp_id}\n")
 
         try:
             response = requests.get(self.URL, headers=self.headers, params=params, timeout=15)
@@ -66,20 +67,29 @@ class PiranotAPI:
 
             data = response.json()
 
-            natures = {}
+            #natures = {}
+            reports = []
 
             for n in data.get('naturezas', []):
                 nature_id = int(n.get('id'))
 
-                if nature_id not in natures:
-                    natures[nature_id] = {
-                        "Nome": n.get('nome'),
-                        "Ano": n.get('acumulado').get('ano'),
-                        "QuantidadeAno": n.get('acumulado').get('atual'),
-                        "QuantidadeMes": n.get('ultimo_mes').get('valor')
-                    }
+                if nature_id not in reports:
+                    #natures[nature_id] = {
+                    #    "Nome": n.get('nome'),
+                    #    "Ano": n.get('acumulado').get('ano'),
+                    #    "QuantidadeAno": n.get('acumulado').get('atual'),
+                    #    "QuantidadeMes": n.get('ultimo_mes').get('valor')
+                    #}
 
-            return natures
+                    reports.append(PoliceReport(
+                        id_natureza=nature_id,
+                        natureza=n.get('nome'),
+                        ano=n.get('acumulado').get('ano'),
+                        quantidade_ultimo_ano=n.get('acumulado').get('atual'),
+                        quantidade_ultimo_mes=n.get('ultimo_mes').get('valor')
+                    ))
+
+            return reports
 
         except Exception as error:
             print(f"Erro na busca: {error}")
