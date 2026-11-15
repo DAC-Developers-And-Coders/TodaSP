@@ -38,8 +38,6 @@ pip-delete-this-directory.txt
 # Project specific
 data/*
 !data/ObservaSampaDadosAbertosIndicadoresJSON.json
-!data/regions_data.json
-!data/health_facilities.json
 resultados/
 temp/
 credentials.json

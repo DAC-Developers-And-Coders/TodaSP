@@ -1,8 +1,7 @@
-import requests, json, re
+import requests, re
 
 from Utils.Utils import clear_terminal
-from Model.PoliceReport import PoliceReport
-from Model.PoliceStation import PoliceStation
+from Model.PoliceData.PoliceStation import PoliceStation
 
 class GeoSampaWFS:
     def __init__(self, piranot_api, mongo_db):

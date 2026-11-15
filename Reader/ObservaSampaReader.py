@@ -1,7 +1,7 @@
 import json
 from statistics import quantiles
-from Model.District import District
-from Model.Subprefecture import Subprefecture
+from Model.GeographicalData.District import District
+from Model.GeographicalData.Subprefecture import Subprefecture
 
 class ObservaSampaReader:
     def __init__(self, mongo_db):

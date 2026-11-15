@@ -1,8 +1,8 @@
-import os, re, json, requests
+import os, re, requests
 from dotenv import load_dotenv
 
 from Utils.Utils import clear_terminal
-from Model.PoliceReport import PoliceReport
+from Model.PoliceData.PoliceReport import PoliceReport
 
 class PiranotAPI:
     def __init__(self):

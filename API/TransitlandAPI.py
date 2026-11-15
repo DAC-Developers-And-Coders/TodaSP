@@ -1,12 +1,12 @@
-import os
-import requests
+import os, requests, json
 from dotenv import load_dotenv
 from geopy.geocoders import Nominatim
 
 from Utils.Utils import clear_terminal
+from Model.PublicTransportData.BusStation import BusStation
 
 class TransitlandAPI:
-    def __init__(self):
+    def __init__(self, mongo_db):
         load_dotenv()
         self.geolocator = Nominatim(user_agent="TodaSP")
 
@@ -14,6 +14,8 @@ class TransitlandAPI:
         self.URL = "https://transit.land/api/v2/rest"
         self.headers = {"apikey": self.key}
         self.feed_id = "f-6gy-sptrans"
+
+        self.mongo_db = mongo_db
 
     def get_all_stops(self):
         if not self.key:
@@ -23,6 +25,7 @@ class TransitlandAPI:
 
         parameters = {
             'feed_onestop_id': self.feed_id,
+            'include_routes': 'true',
             'limit': 1000
         }
 
@@ -38,15 +41,36 @@ class TransitlandAPI:
 
                 after = data.get('meta', {}).get('after')
 
+                print(f"Pontos coletados: {len(stops)}")
+
                 if not after:
                     break
 
                 parameters['after'] = after
 
             for stop in stops:
-                #coordinates = stop.get('geometry', {}).get('coordinates', [])
-                #location = self.geolocator.reverse(f"{coordinates[1]}, {coordinates[0]}", language='pt', timeout=30)
-                print(f"{stop['stop_id']} - {stop['stop_name']}")
+                lines = []
+
+                for route_stop in stop.get('route_stops', []):
+                    route = route_stop['route']
+
+                    lines.append({
+                        "id_linha": route['route_id'],
+                        "nome_completo": route['route_long_name'],
+                        "nome_curto": route['route_short_name']
+                    })
+
+                coordinates = stop.get('geometry', {}).get('coordinates', [])
+
+                self.mongo_db.insert_bus_station(BusStation(
+                    id_ponto=stop['stop_id'],
+                    nome=stop['stop_name'],
+                    latitude=coordinates[1],
+                    longitude=coordinates[0],
+                    linhas=lines
+                ))
+
+            print("\nPontos coletados e armazenados no banco de dados.\n")
 
             input("Pressione ENTER para voltar ao menu.")
             clear_terminal()

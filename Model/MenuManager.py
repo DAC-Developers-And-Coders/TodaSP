@@ -15,18 +15,16 @@ class MenuManager:
     def __init__(self):
         self.menuString = [f"======== Toda{colored_text('S', '#ff2828')}"
                            f"{BOLD}{colored_text('P', '#028a38')}{BOLD} ========",
-                           "|[1] - Linhas de Metrô", "|[2] - Pontos de Ônibus", "|[3] - Delegacias de polícia",
-                           "|[4] - Estabelecimentos de Saúde",
-                           "|[5] - Ler dados de alagamentos",
-                           "|[6] - Ler dados da população",
-                           "|[7] - Ler dados de população e alagamentos de distritos e subprefeituras de São Paulo",
+                           "|[1] - Linhas de Metrô", "|[2] - Pontos de Ônibus",
+                           "|[3] - Delegacias de polícia", "|[4] - Estabelecimentos de Saúde",
+                           "|[5] - Ler dados de população e alagamentos de distritos e subprefeituras de São Paulo",
                            "|[0] - Sair\n"]
 
         self.mongo_db = MongoDB()
         self.piranot_api = PiranotAPI()
         self.olho_vivo_api = OlhoVivoAPI()
-        self.transitland_api = TransitlandAPI()
-        self.trilhos_agora_api = TrilhosAgoraAPI()
+        self.transitland_api = TransitlandAPI(self.mongo_db)
+        self.trilhos_agora_api = TrilhosAgoraAPI(self.mongo_db)
         self.dados_abertos_api = DadosAbertosAPI(self.mongo_db)
         self.observa_sampa_reader = ObservaSampaReader(self.mongo_db)
         self.geo_sampa_wfs = GeoSampaWFS(self.piranot_api, self.mongo_db)
@@ -64,12 +62,6 @@ class MenuManager:
                     clear_terminal()
                     self.dados_abertos_api.get_all_health_facilities()
                 case 5:
-                    clear_terminal()
-                    self.observa_sampa_reader.read_flood_data()
-                case 6:
-                    clear_terminal()
-                    self.observa_sampa_reader.read_population_data()
-                case 7:
                     clear_terminal()
                     self.observa_sampa_reader.read_all_data()
                 case 0:

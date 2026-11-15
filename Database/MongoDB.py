@@ -1,9 +1,11 @@
 from pymongo import MongoClient
-from Model.District import District
-from Model.PoliceReport import PoliceReport
-from Model.Subprefecture import Subprefecture
-from Model.PoliceStation import PoliceStation
-from Model.HealthFacility import HealthFacility
+from Model.GeographicalData.District import District
+from Model.PoliceData.PoliceReport import PoliceReport
+from Model.PoliceData.PoliceStation import PoliceStation
+from Model.HealthData.HealthFacility import HealthFacility
+from Model.PublicTransportData.SubwayLine import SubwayLine
+from Model.PublicTransportData.BusStation import BusStation
+from Model.GeographicalData.Subprefecture import Subprefecture
 
 class MongoDB:
     def __init__(self):
@@ -14,6 +16,8 @@ class MongoDB:
 
         self.database['health_facilities'].create_index("cnes_id", unique=True)
         self.database['police_stations'].create_index("numero_dp", unique=True)
+        self.database['subway_lines'].create_index("numero_linha", unique=True)
+        self.database['bus_stations'].create_index("id_ponto", unique=True)
         self.database['subprefectures'].create_index("nome", unique=True)
         self.database['districts'].create_index("nome", unique=True)
 
@@ -47,3 +51,22 @@ class MongoDB:
         data = subprefecture.model_dump(by_alias=True)
 
         collection.update_one({"nome": data["nome"]}, {"$set": data}, upsert=True)
+
+    def insert_subway_line(self, line: SubwayLine):
+        collection = self.database['subway_lines']
+        station = line.model_dump(by_alias=True, exclude={"route"})
+
+        collection.update_one({"numero_linha": station["numero_linha"]}, {"$set": station}, upsert=True)
+
+    def insert_subway_line_route(self, line: int, route: list[dict]):
+        collection = self.database['subway_lines']
+
+        collection.update_one({"numero_linha": line}, {"$set": {"rota": [
+            station for station in route
+        ]}}, upsert=False)
+
+    def insert_bus_station(self, station: BusStation):
+        collection = self.database['bus_stations']
+        data = station.model_dump(by_alias=True)
+
+        collection.update_one({"id_ponto": data["id_ponto"]}, {"$set": data}, upsert=True)

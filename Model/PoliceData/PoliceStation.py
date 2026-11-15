@@ -1,4 +1,4 @@
-from Model.PoliceReport import PoliceReport
+from Model.PoliceData.PoliceReport import PoliceReport
 from pydantic import BaseModel, ConfigDict, Field
 
 class PoliceStation(BaseModel):

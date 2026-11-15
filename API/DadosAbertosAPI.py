@@ -1,6 +1,6 @@
-import json, requests
+import requests
 
-from Model.HealthFacility import HealthFacility
+from Model.HealthData.HealthFacility import HealthFacility
 from Utils.Utils import clear_terminal, BOLD, RESET, LEGAL_NATURE, FACILITIES_CODES
 
 class DadosAbertosAPI:
