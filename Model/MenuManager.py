@@ -1,4 +1,4 @@
-import sys
+import sys, json
 
 from Database.MongoDB import MongoDB
 from API.PiranotAPI import PiranotAPI
@@ -20,9 +20,9 @@ class MenuManager:
     def __init__(self):
         self.menuString = [f"======== Toda{colored_text('S', '#ff2828')}"
                            f"{BOLD}{colored_text('P', '#028a38')}{BOLD} ========",
-                           "|[1] - Linhas de Metrô", "|[2] - Estações de Metrô","|[3] - Pontos de Ônibus",
-                           "|[4] - Delegacias de polícia", "|[5] - Estabelecimentos de Saúde",
-                           "|[6] - Ler dados de população e alagamentos de distritos e subprefeituras de São Paulo",
+                           "|[1] - Verificar Linhas de Metrô", "|[2] - Coletar Estações de Metrô","|[3] - Coletar Pontos de Ônibus",
+                           "|[4] - Verificar Delegacias de polícia", "|[5] - Coletar Estabelecimentos de Saúde",
+                           "|[6] - Coletar dados de população e alagamentos de distritos e subprefeituras de São Paulo",
                            "|[0] - Sair\n"]
 
         self.mongo_db = MongoDB()
@@ -61,10 +61,10 @@ class MenuManager:
             match int(option):
                 case 1:
                     clear_terminal()
-                    self.trilhos_agora_api.get_all_lines()
+                    self.subway_lines_manager()
                 case 2:
                     clear_terminal()
-                    self.run_subway_stations_spider()
+                    self.subway_stations_manager()
                 case 3:
                     clear_terminal()
                     self.transitland_api.get_all_stops()
@@ -86,6 +86,58 @@ class MenuManager:
                 case _:
                     self.invalid_option()
                     continue
+
+    def subway_lines_manager(self):
+        subway_lines_count = self.mongo_db.database['subway_lines'].count_documents({})
+
+        print("========== Linhas de Metrô ==========")
+
+        if subway_lines_count > 0:
+            option = input(f"Você deseja atualizar os dados do banco de dados ({subway_lines_count} registros)? (s/n)\n")
+
+            if option.lower() == "s" or option.lower() == "n":
+                clear_terminal()
+                self.trilhos_agora_api.get_all_lines(option.lower())
+            else:
+                self.invalid_option()
+
+    def subway_stations_manager(self):
+        subway_stations_count = self.mongo_db.database['subway_stations'].count_documents({})
+
+        print("========== Estações de Metrô ==========")
+
+        if subway_stations_count > 0:
+            option = input(f"Você deseja atualizar os dados do banco de dados ({subway_stations_count} registros)? (s/n)\n"
+                           "NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO\n\n")
+
+            if option.lower() == "s":
+                clear_terminal()
+                self.run_subway_stations_spider()
+            elif option.lower() == "n":
+                print("\nColetando e armazenando dados em \'data/subway_stations.json\'")
+
+                self.save_subway_stations_data()
+
+                input("\nPressione ENTER para voltar ao menu.")
+            else:
+                self.invalid_option()
+        else:
+            option = input(f"Você deseja coletar os dados externos para o banco de dados? (s/n)\n"
+                "NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO\n\n")
+
+            if option.lower() == "s":
+                clear_terminal()
+                self.run_subway_stations_spider()
+            elif option.lower() == "n":
+                input("\nPressione ENTER para voltar ao menu.")
+            else:
+                self.invalid_option()
+
+    def save_subway_stations_data(self):
+        full_subway_stations_data = self.mongo_db.get_all_data_from_collection('subway_stations')
+
+        with open("data/subway_stations.json", "w", encoding="utf-8") as f:
+            json.dump(full_subway_stations_data, f, ensure_ascii=False, indent=4)
 
     def run_subway_stations_spider(self):
         finished = Event()

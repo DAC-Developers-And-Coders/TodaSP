@@ -78,3 +78,6 @@ class MongoDB:
         data = station.model_dump(by_alias=True)
 
         collection.update_one({"nome": data["nome"]}, {"$set": data}, upsert=True)
+
+    def get_all_data_from_collection(self, collection_name: str):
+        return list(self.database[collection_name].find({}, {"_id": 0}))
