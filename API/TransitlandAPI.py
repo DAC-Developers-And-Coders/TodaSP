@@ -1,4 +1,4 @@
-import os, requests, json
+import os, requests
 from dotenv import load_dotenv
 from geopy.geocoders import Nominatim
 

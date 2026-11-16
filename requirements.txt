@@ -1,8 +1,10 @@
 geopy
 scrapy
 pymongo
+twisted
 pydantic
 requests
 tabulate
 curl_cffi
+itemadapter
 python-dotenv

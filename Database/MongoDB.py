@@ -6,6 +6,7 @@ from Model.HealthData.HealthFacility import HealthFacility
 from Model.PublicTransportData.SubwayLine import SubwayLine
 from Model.PublicTransportData.BusStation import BusStation
 from Model.GeographicalData.Subprefecture import Subprefecture
+from Model.PublicTransportData.SubwayStation import SubwayStation
 
 class MongoDB:
     def __init__(self):
@@ -18,6 +19,7 @@ class MongoDB:
         self.database['police_stations'].create_index("numero_dp", unique=True)
         self.database['subway_lines'].create_index("numero_linha", unique=True)
         self.database['bus_stations'].create_index("id_ponto", unique=True)
+        self.database['subway_stations'].create_index("nome", unique=True)
         self.database['subprefectures'].create_index("nome", unique=True)
         self.database['districts'].create_index("nome", unique=True)
 
@@ -70,3 +72,9 @@ class MongoDB:
         data = station.model_dump(by_alias=True)
 
         collection.update_one({"id_ponto": data["id_ponto"]}, {"$set": data}, upsert=True)
+
+    def insert_subway_station(self, station: SubwayStation):
+        collection = self.database['subway_stations']
+        data = station.model_dump(by_alias=True)
+
+        collection.update_one({"nome": data["nome"]}, {"$set": data}, upsert=True)

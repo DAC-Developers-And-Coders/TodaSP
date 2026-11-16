@@ -1,4 +1,4 @@
-import os
+import os, unicodedata
 
 BOLD = "\033[1m"
 RESET = "\033[0m"
@@ -81,3 +81,8 @@ def colored_text(text, color):
     b = int(color[5:7], 16)
 
     return f"{BOLD}\033[38;2;{r};{g};{b}m{text}\033[0m{RESET}"
+
+def remove_accents(text):
+    normalized_text = unicodedata.normalize("NFKD", text)
+
+    return "".join([c for c in normalized_text if not unicodedata.combining(c)])
