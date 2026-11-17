@@ -413,14 +413,6 @@ O TodaSP utiliza o MongoDB como banco de dados. Para instalá-lo, acesse a docum
 * [Linux](https://www.mongodb.com/docs/manual/administration/install-community-linux/?linux-method=pkg&linux-distro=rhel)
 * [macOS](https://www.mongodb.com/docs/manual/administration/install-community-macos/?macos-method=brew)
 
-Crie um arquivo `.env` na raiz do projeto:
-
-```
-TRILHOS_AGORA_KEY=insira_sua_chave_aqui
-PIRANOT_KEY=insira_sua_chave_aqui
-TRANSITLAND_KEY=insira_sua_chave_aqui
-```
-
 ### 7. Inicie o MongoDB
 
 #### Windows
