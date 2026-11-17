@@ -84,7 +84,7 @@ A comunicação entre as threads é realizada por mecanismos de sincronização 
 
 Coleta dados de todas as linhas de metrô de São Paulo, através da API Trilhos Agora, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
 
-```
+```json
 {
   "_id": {}, - ID ÚNICO DO MONGODB
   "numero_linha": 1, - NÚMERO DA LINHA DE METRÔ
@@ -108,7 +108,7 @@ Coleta dados de todas as linhas de metrô de São Paulo, através da API Trilhos
 
 Coleta dados de todas as estações de metrô de São Paulo, através de um Web Crawler que percorre o site da Trilhos Agora buscando informações, e os armazena no banco de dados e no arquivo `data/subway_stations.json` seguindo a seguinte estrutura em JSON:
 
-```
+```json
 {
   "_id": {}, - ID ÚNICO DO MONGODB
   "nome": "Estação Palmeiras-Barra Funda", - NOME DA ESTAÇÃO
@@ -130,7 +130,7 @@ Coleta dados de todas as estações de metrô de São Paulo, através de um Web 
 
 Coleta dados de todos os pontos de ônibus de São Paulo, através da API Transitland, e os armazena no banco de dados e no arquivo `data/bus_stops.json` seguindo a seguinte estrutura em JSON:
 
-```
+```json
 {
   "_id": {}, - ID ÚNICO DO MONGODB
   "id_ponto": "18848", - NÚMERO DE IDENTIFICAÇÃO DO PONTO DE ÔNIBUS
@@ -151,7 +151,7 @@ Coleta dados de todos os pontos de ônibus de São Paulo, através da API Transi
 
 Coleta dados de todas as delegacias de polícia de São Paulo, através da API WFS GeoSampa e da API Piranot, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
 
-```
+```json
 {
   "_id": {}, - ID ÚNICO DO MONGODB
   "numero_dp": 1, - NÚMERO DE IDENTIFICAÇÃO DA DELEGACIA
@@ -175,7 +175,7 @@ Coleta dados de todas as delegacias de polícia de São Paulo, através da API W
 
 Coleta dados de todos os estabelecimentos de saúde de São Paulo, através da API Dados Abertos, e os armazena no banco de dados e no arquivo `data/health_facilities.json` seguindo a seguinte estrutura em JSON:
 
-```
+```json
 {
   "_id": {} - ID ÚNICO DO MONGODB
   "cnes_id": 34673, - NÚMERO DE IDENTIFICAÇÃO DO ESTABELECIMENTO
@@ -216,7 +216,7 @@ Coleta dados populacionais e de risco hidrológico (inundações e alagamentos) 
 
 #### SUBPREFEITURAS
 
-```
+```json
 {
   "_id": {} - ID ÚNICO DO MONGODB
   "nome": "BUTANTÃ", - NOME DA SUBPREFEITURA
@@ -229,7 +229,7 @@ Coleta dados populacionais e de risco hidrológico (inundações e alagamentos) 
 
 #### DISTRITOS
 
-```
+```json
 {
   "_id": {} - ID ÚNICO DO MONGODB
   "nome": "Campo Grande", - NOME DO DISTRITO
