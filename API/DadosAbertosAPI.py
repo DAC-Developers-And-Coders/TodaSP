@@ -80,7 +80,7 @@ class DadosAbertosAPI:
                     facility_counter += 1
 
                 print(
-                    f"Página {parameters['offset'] + 1}: "
+                    f"Página: {parameters['offset'] + 1} "
                     f"| Total: {facility_counter}"
                 )
 

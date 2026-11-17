@@ -6,7 +6,7 @@
 
 ## 💡 Descrição do Projeto
 
-O **TodaSP** é uma plataforma que fornece informações estratégicas sobre transporte, saúde e segurança urbana de toda cidade de São Paulo, garantindo maior assertividade e segurança para os cidadãos na escolha de moradias ou hospedagens na grande capital. Reunimos todas as informações essenciais da vizinhança em um só lugar, tornando a decisão de onde se hospedar ou morar simples, rápida e transparente.
+O **TodaSP** é uma plataforma que fornece informações estratégicas sobre transporte, saúde e segurança urbana de toda a cidade de São Paulo, garantindo maior assertividade e segurança para os cidadãos na escolha de moradias ou hospedagens na grande capital. Reunimos todas as informações essenciais da vizinhança em um só lugar, tornando a decisão de onde se hospedar ou morar simples, rápida e transparente.
 
 A solução possui funcionalidades como a utilização de APIs e Web Crawlers para coletar dados das linhas e estações de metrô, pontos de ônibus, estabelecimentos de saúde, delegacias de polícia e seus casos reportados e dados populacionais e de risco hidrológico (inundações e alagamentos) de subprefeituras e distritos de São Paulo.
 
@@ -56,7 +56,6 @@ A escolha de um local para morar ou se hospedar em grandes cidades é marcada pe
 
 ### Bibliotecas Externas (requirements.txt)
 
-* `geopy`
 * `scrapy`
 * `pymongo`
 * `twisted`
@@ -70,7 +69,16 @@ A escolha de um local para morar ou se hospedar em grandes cidades é marcada pe
 ---
 ## ✅ Funcionamento da Solução
 
-O sistema se baseia em um menu com 7 opções no total, com o qual o usuário pode interagir e escolher qual funcionalidade irá utilizar.
+O sistema se baseia em um menu com 6 funcionalidades e uma opção de saída, com o qual o usuário pode interagir e escolher qual funcionalidade irá utilizar.
+
+O sistema utiliza duas threads com responsabilidades distintas:
+
+* `Main Thread (thread principal)`: responsável pela interação com o usuário, gerenciamento do menu e execução das funcionalidades, incluindo as consultas às APIs e o processamento dos dados.
+* `TwistedReactor (thread secundária)`: responsável pela execução contínua do Reactor do Twisted, que coordena as operações assíncronas do Scrapy e a execução dos Web Crawlers.
+
+Essa arquitetura mantém o Reactor ativo durante toda a execução do programa, permitindo iniciar o Web Crawler mais de uma vez sem precisar reinicializar o mecanismo de execução assíncrona.
+
+A comunicação entre as threads é realizada por mecanismos de sincronização e agendamento de tarefas, como threading.Event e reactor.callFromThread(). Dessa forma, a thread principal pode aguardar a conclusão de uma coleta sem bloquear o funcionamento interno do Reactor.
 
 ### [1] Verificar Linhas de Metrô
 
@@ -84,12 +92,12 @@ Coleta dados de todas as linhas de metrô de São Paulo, através da API Trilhos
   "data_atualizacao": "2026-11-16T20:59:03-03:00", - DATA DA ATUALIZAÇÃO DOS DADOS
   "nome": "Azul", - NOME CURTO DA LINHA
   "operadora": "Metrô de São Paulo", - OPERADORA RESPONSÁVEL PELA LINHA
-  "rotulo": "Linha 2-Verde", - NOME COMPLETO DA LINHA (número + cor)
+  "rotulo": "Linha 1-Azul", - NOME COMPLETO DA LINHA (número + cor)
   "status": "Operação Normal", - ESTADO DA OPERAÇÃO DA LINHA
   "rota": [ - LISTA DAS ESTAÇÕES QUE A LINHA PASSA
       {
         "posicao": 1, - QUAL A POSIÇÃO DA ESTAÇÃO NO TRAJETO DA LINHA
-        "nome": "Vila Prudente" - NOME DA ESTAÇÃO
+        "nome": "Jabaquara-Comitê Paralímpico Brasileiro" - NOME DA ESTAÇÃO
       },
       {...}
   ]
@@ -98,7 +106,7 @@ Coleta dados de todas as linhas de metrô de São Paulo, através da API Trilhos
 
 ### [2] Coletar Estações de Metrô
 
-Coleta dados de todas as estações de metrô de São Paulo, através de um Web Crawler que percorre o site da Trilhos Agora buscando informações, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
+Coleta dados de todas as estações de metrô de São Paulo, através de um Web Crawler que percorre o site da Trilhos Agora buscando informações, e os armazena no banco de dados e no arquivo `data/subway_stations.json` seguindo a seguinte estrutura em JSON:
 
 ```
 {
@@ -108,7 +116,7 @@ Coleta dados de todas as estações de metrô de São Paulo, através de um Web 
   "endereco": "Av. Auro Soares de Moura Andrade, 664 - Barra Funda, São Paulo - SP", - ENDEREÇO DA ESTAÇÃO
   "horario_funcionamento": "Das 04:40 às 00:00", - HORÁRIO DE FUNCIONAMENTO DA ESTAÇÃO
   "integracoes": "Metrô (L3), CPTM/ViaMobilidade (L7, L8, L10), Terminal Rodoviário, Ônibus", - POSSÍVEIS INTEGRAÇÕES E BALDEAÇÕES A SEREM FEITAS DA ESTAÇÃO
-  "linhas": [ - LISTA DAS LINHAS PRESENTES NA ESTAÇÂO
+  "linhas": [ - LISTA DAS LINHAS PRESENTES NA ESTAÇÃO
     "Linha 3-Vermelha", - NOMES DAS LINHAS
     "Linha 7-Rubi",
     "Linha 8-Diamante",
@@ -120,7 +128,7 @@ Coleta dados de todas as estações de metrô de São Paulo, através de um Web 
 
 ### [3] Coletar Pontos de Ônibus
 
-Coleta dados de todos os pontos de ônibus de São Paulo, através da API Transitland, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
+Coleta dados de todos os pontos de ônibus de São Paulo, através da API Transitland, e os armazena no banco de dados e no arquivo `data/bus_stops.json` seguindo a seguinte estrutura em JSON:
 
 ```
 {
@@ -165,7 +173,7 @@ Coleta dados de todas as delegacias de polícia de São Paulo, através da API W
 
 ### [5] Coletar Estabelecimentos de Saúde
 
-Coleta dados de todos os estabelecimentos de saúde de São Paulo, através da API Dados Abertos, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
+Coleta dados de todos os estabelecimentos de saúde de São Paulo, através da API Dados Abertos, e os armazena no banco de dados e no arquivo `data/health_facilities.json` seguindo a seguinte estrutura em JSON:
 
 ```
 {
@@ -198,6 +206,9 @@ Todos os estabelecimentos coletados estão em um destes tipos:
 * `Pronto Atendimento`
 * `Pronto Socorro`
 * `Unidade Básica de Saúde`
+
+A api recomenda a coleta de apenas 20 estabelecimentos por requisição, portanto, esta coleta costuma demorar mais do que as outras, principalmente pela quantidade elevada de estabelecimentos.
+Ao final da coleta, são registrados 28.926 estabelecimentos, de acordo com as últimas execuções.
 
 ### [6] Coletar dados de população e alagamentos de distritos e subprefeituras de São Paulo
 
@@ -254,7 +265,7 @@ Portanto, o resultado representa a quantidade de ocorrências a cada 10.000 habi
 * `Moderado`
 * `Alto`
 
-Os limites dos níveis são definidos estatisticamente, através de quartils, que dividem a distribuição dos valores de risco em quatro intervalos. Para isso, é utilizada a função quantiles(), disponível na biblioteca nativa statistics do Python, com o método inclusive.
+Os limites dos níveis são definidos estatisticamente, através de quartis, que dividem a distribuição dos valores de risco em quatro intervalos. Para isso, é utilizada a função quantiles(), disponível na biblioteca nativa statistics do Python, com o método inclusive.
 
 ### [0] Sair
 
@@ -364,7 +375,7 @@ Ative o ambiente virtual:
 .\.venv\Scripts\activate
 ```
 
-#### Linux/MacOS
+#### Linux/macOS
 
 ```bash
 python3 -m venv .venv
@@ -384,7 +395,53 @@ Com o ambiente virtual ativado, execute:
 python -m pip install -r requirements.txt
 ```
 
-### 5. Execute o programa
+### 5. Configure as variáveis de ambiente
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```
+TRILHOS_AGORA_KEY=insira_sua_chave_aqui
+PIRANOT_KEY=insira_sua_chave_aqui
+TRANSITLAND_KEY=insira_sua_chave_aqui
+```
+
+### 6. Instale o MongoDB
+
+O TodaSP utiliza o MongoDB como banco de dados. Para instalá-lo, acesse a documentação oficial correspondente ao seu sistema operacional:
+
+* [Windows](https://www.mongodb.com/docs/manual/administration/install-community-windows/?win-method=wizard)
+* [Linux](https://www.mongodb.com/docs/manual/administration/install-community-linux/?linux-method=pkg&linux-distro=rhel)
+* [macOS](https://www.mongodb.com/docs/manual/administration/install-community-macos/?macos-method=brew)
+
+Crie um arquivo `.env` na raiz do projeto:
+
+```
+TRILHOS_AGORA_KEY=insira_sua_chave_aqui
+PIRANOT_KEY=insira_sua_chave_aqui
+TRANSITLAND_KEY=insira_sua_chave_aqui
+```
+
+### 7. Inicie o MongoDB
+
+#### Windows
+
+```bash
+net start MongoDB
+```
+
+#### Linux
+
+```bash
+sudo systemctl start mongod
+```
+
+#### macOS
+
+```bash
+brew services start mongodb-community
+```
+
+### 8. Execute o programa
 
 #### Windows
 
@@ -398,11 +455,19 @@ ou
 py main.py
 ```
 
-#### Linux/MacOS
+#### Linux/macOS
 
 ```bash
 python3 main.py
 ```
+
+---
+
+## ⚠ Observações e Limitações
+
+* O sistema permite a interrupção manual através do comando `CTRL+C`, inclusive durante a interação com o menu.
+* Caso a interrupção ocorra durante uma operação de Web Crawling, a coleta será encerrada abruptamente, pois o crawler ainda não possui um cancelamento controlado.
+* O funcionamento do Web Crawler depende do Reactor do Twisted, mantido ativo em uma thread dedicada durante a execução do programa.
 
 ---
 

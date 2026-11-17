@@ -1,6 +1,5 @@
 import os, requests
 from dotenv import load_dotenv
-from geopy.geocoders import Nominatim
 
 from Utils.Utils import clear_terminal
 from Model.PublicTransportData.BusStation import BusStation
@@ -8,7 +7,6 @@ from Model.PublicTransportData.BusStation import BusStation
 class TransitlandAPI:
     def __init__(self, mongo_db):
         load_dotenv()
-        self.geolocator = Nominatim(user_agent="TodaSP")
 
         self.key = os.getenv('TRANSITLAND_KEY')
         self.URL = "https://transit.land/api/v2/rest"

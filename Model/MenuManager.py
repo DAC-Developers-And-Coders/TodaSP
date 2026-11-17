@@ -99,8 +99,7 @@ class MenuManager:
             self.save_health_facilities_data()
             return
 
-        option = input(f"Você deseja atualizar os dados do banco de dados ({health_facilities_count} registros)? (s/n)\n"
-                       f"NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO\n\n")
+        option = input(f"Você deseja atualizar os dados do banco de dados ({health_facilities_count} registros)? (s/n)\n\n")
 
         if option.lower() == "s":
             clear_terminal()
@@ -125,8 +124,7 @@ class MenuManager:
             self.save_bus_stops_data()
             return
 
-        option = input(f"Você deseja atualizar os dados do banco de dados ({bus_stops_count} registros)? (s/n)\n"
-                       f"NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO\n\n")
+        option = input(f"Você deseja atualizar os dados do banco de dados ({bus_stops_count} registros)? (s/n)\n\n")
 
         if option.lower() == "s":
             clear_terminal()
@@ -206,8 +204,7 @@ class MenuManager:
         print("========== Estações de Metrô ==========")
 
         if subway_stations_count > 0:
-            option = input(f"Você deseja atualizar os dados do banco de dados ({subway_stations_count} registros)? (s/n)\n"
-                           "NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO\n\n")
+            option = input(f"Você deseja atualizar os dados do banco de dados ({subway_stations_count} registros)? (s/n)\n\n")
 
             if option.lower() == "s":
                 clear_terminal()
@@ -223,8 +220,7 @@ class MenuManager:
             else:
                 self.invalid_option()
         else:
-            option = input(f"Você deseja coletar os dados externos para o banco de dados? (s/n)\n"
-                "NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO\n\n")
+            option = input(f"Você deseja coletar os dados externos para o banco de dados? (s/n)\n\n")
 
             if option.lower() == "s":
                 clear_terminal()
@@ -275,7 +271,7 @@ class MenuManager:
         input("\nPressione ENTER para voltar ao menu.")
 
     def save_bus_stops_data(self):
-        full_bus_stops_data = self.mongo_db.get_all_data_from_collection('subway_stations')
+        full_bus_stops_data = self.mongo_db.get_all_data_from_collection('bus_stations')
 
         print("\nDados completos no banco de dados e no arquivo \'data/bus_stops.json\'.")
 
@@ -331,4 +327,3 @@ class MenuManager:
     def exit_system():
         sys.stdout.flush()
         print("Sistema encerrado.")
-        reactor.callFromThread(reactor.stop)
