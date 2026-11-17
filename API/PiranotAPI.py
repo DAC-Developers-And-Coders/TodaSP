@@ -15,7 +15,7 @@ class PiranotAPI:
 
         os.makedirs("data", exist_ok=True)
 
-    def get_police_station_ids(self):
+    def get_police_station_ids(self, normal_operation=True):
         if not self.key:
             raise ValueError("Key da Piranot não encontrada.")
 
@@ -33,10 +33,10 @@ class PiranotAPI:
                 dp_number = self.get_dp_number(dp["nome"])
 
                 if dp_number and dp_number not in self.dps_numbers_ids:
-                    #dp_regular_number = dp_number.lstrip("0")
                     self.dps_numbers_ids[dp["id"]] = dp_number
 
-            clear_terminal()
+            if normal_operation:
+                clear_terminal()
 
         except Exception:
             clear_terminal()
@@ -58,29 +58,18 @@ class PiranotAPI:
             "dp": dp_id
         }
 
-        #with open("data/ids.txt", "a", encoding="utf-8") as f:
-            #f.write(f"DP ID: {dp_id}\n")
-
         try:
             response = requests.get(self.URL, headers=self.headers, params=params, timeout=15)
             response.raise_for_status()
 
             data = response.json()
 
-            #natures = {}
             reports = []
 
             for n in data.get('naturezas', []):
                 nature_id = int(n.get('id'))
 
                 if nature_id not in reports:
-                    #natures[nature_id] = {
-                    #    "Nome": n.get('nome'),
-                    #    "Ano": n.get('acumulado').get('ano'),
-                    #    "QuantidadeAno": n.get('acumulado').get('atual'),
-                    #    "QuantidadeMes": n.get('ultimo_mes').get('valor')
-                    #}
-
                     reports.append(PoliceReport(
                         id_natureza=nature_id,
                         natureza=n.get('nome'),

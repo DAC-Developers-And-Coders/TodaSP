@@ -20,7 +20,8 @@ class DadosAbertosAPI:
         return next((k for k, v in FACILITIES_CODES.items() if code in v), None)
 
     def get_all_health_facilities(self):
-        print(f'{BOLD}Checando os estabelecimentos de saúde na cidade de  SÃO PAULO{RESET}\n')
+        print(f'{BOLD}Checando os estabelecimentos de saúde na cidade de  SÃO PAULO{RESET} '
+              f'(NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO)\n')
 
         parameters = {
             'codigo_uf': 35,
@@ -89,9 +90,6 @@ class DadosAbertosAPI:
                 parameters["offset"] += 1
 
             print(f"\nTotal coletado: {facility_counter} estabelecimentos.")
-
-            input("\nPressione ENTER para voltar ao menu.")
-            clear_terminal()
 
         except Exception as error:
             print(f"Erro na busca: {error}")

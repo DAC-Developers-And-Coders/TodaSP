@@ -21,7 +21,7 @@ class TransitlandAPI:
         if not self.key:
             raise ValueError("Key da Transitland não encontrada.")
 
-        print(f'Checando os pontos de SÃO PAULO\n')
+        print(f'Checando os pontos de SÃO PAULO (NÃO É POSSÍVEL INTERROMPER O PROCESSAMENTO)\n')
 
         parameters = {
             'feed_onestop_id': self.feed_id,
@@ -70,10 +70,7 @@ class TransitlandAPI:
                     linhas=lines
                 ))
 
-            print("\nPontos coletados e armazenados no banco de dados.\n")
-
-            input("Pressione ENTER para voltar ao menu.")
-            clear_terminal()
+            print(f"\nPontos coletados e armazenados no banco de dados. ({len(stops)} registros)\n")
 
         except requests.RequestException as error:
             print(f"Erro na busca: {error}")

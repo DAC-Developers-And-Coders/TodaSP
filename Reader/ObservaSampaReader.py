@@ -86,7 +86,11 @@ class ObservaSampaReader:
             if "Total" in population and "AcimaDe15Anos" in population:
                 population["Criancas"] = population["Total"] - population["AcimaDe15Anos"]
 
-    def read_all_data(self):
+    def read_all_data(self, collect_from_api):
+        if not collect_from_api:
+            self.print_database_data()
+            return
+
         self.read_flood_data()
         self.read_population_data()
 
@@ -114,6 +118,9 @@ class ObservaSampaReader:
 
             risks.append(risk)
 
+        print("========== SUBPREFEITURAS ==========")
+        print("|    Áreas de risco hidrológico    |\n")
+
         for region, d in self.regions_data.items():
             if not region.endswith("(Subprefeitura)"):
                 continue
@@ -128,6 +135,8 @@ class ObservaSampaReader:
 
             self.mongo_db.insert_subprefecture(subprefecture)
 
+            print(f"{subprefecture.name}: {subprefecture.hydrological_risk_area}m²")
+
         self.define_hydrological_risk(districts)
 
     def define_hydrological_risk(self, districts):
@@ -136,6 +145,8 @@ class ObservaSampaReader:
 
         risks = [d["risco_hidrologico"] for d in districts]
         l1, l2, l3 = quantiles(risks, n=4, method="inclusive")
+
+        print("\n========== DISTRITOS ==========\n")
 
         for d in districts:
             risk = d["risco_hidrologico"]
@@ -155,6 +166,53 @@ class ObservaSampaReader:
             )
 
             self.mongo_db.insert_district(district)
+
+            print(f"------ {district.name} ------\n|População: {district.population} habitantes\n"
+                  f"|Crianças: {district.children_population} habitantes\n"
+                  f"|Idosos: {district.old_population} habitantes\n"
+                  f"|Casos de alagamento e enchentes: {district.flood_reports}\n"
+                  f"|Risco Hidrológico: {district.hydrological_risk_level}\n")
+
+        print("\nDados completos salvos no banco de dados.")
+        input("\nPressione ENTER para voltar ao menu.")
+
+    def print_database_data(self):
+        data_subprefectures = self.mongo_db.get_all_data_from_collection('subprefectures')
+        data_districts = self.mongo_db.get_all_data_from_collection('districts')
+
+        print("========== SUBPREFEITURAS ==========")
+        print("|    Áreas de risco hidrológico    |\n")
+
+        for sub in data_subprefectures:
+            subprefecture = Subprefecture(
+                nome=sub.get('nome'),
+                area_risco_hidrologico=sub.get('area_risco_hidrologico'),
+                anos_informacoes=sub.get('anos_informacoes')
+            )
+
+            print(f"{subprefecture.name}: {subprefecture.hydrological_risk_area}m²")
+
+        print("\n========== DISTRITOS ==========\n")
+
+        for dist in data_districts:
+            district = District(
+                nome=dist.get('nome'),
+                populacao=dist.get('populacao'),
+                populacao_idosa=dist.get('populacao_idosa'),
+                populacao_criancas=dist.get('populacao_criancas'),
+                casos_alagamentos=dist.get('casos_alagamentos'),
+                nivel_risco_hidrologico=dist.get('nivel_risco_hidrologico'),
+                anos_informacoes=dist.get('anos_informacoes')
+            )
+
+            print(f"------ {district.name} ------\n|População: {district.population} habitantes\n"
+                  f"|Crianças: {district.children_population} habitantes\n"
+                  f"|Idosos: {district.old_population} habitantes\n"
+                  f"|Casos de alagamento e enchentes: {district.flood_reports}\n"
+                  f"|Risco Hidrológico: {district.hydrological_risk_level}\n")
+
+        print("\nDados completos estão no banco de dados.")
+        input("\nPressione ENTER para voltar ao menu.")
 
     def read_data(self, data_type: str, useful_data_names):
         try:
