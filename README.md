@@ -455,7 +455,7 @@ python3 main.py
 
 ---
 
-## ⚠ Observações e Limitações
+## 🚧 Observações
 
 * O sistema permite a interrupção manual através do comando `CTRL+C`, inclusive durante a interação com o menu.
 * Caso a interrupção ocorra durante uma operação de Web Crawling, a coleta será encerrada abruptamente, pois o crawler ainda não possui um cancelamento controlado.
