@@ -1,28 +1,24 @@
-# 🌌 NebulaNoise
+<p align="center">
+  <img src="readme_files/TodaSP_Logo.png" />
+</p>
+
+# 🗺 TodaSP
 
 ## 💡 Descrição do Projeto
 
-O **NebulaNoise** é uma plataforma de simulação e monitoramento de instabilidades em sistemas de comunicação orbital. A solução busca simular e analisar condições espaciais, identificar possíveis riscos de interferência em sinais eletromagnéticos e gerar alertas preventivos para operadores e usuários.
+O **TodaSP** é uma plataforma que fornece informações estratégicas sobre transporte, saúde e segurança urbana de toda cidade de São Paulo, garantindo maior assertividade e segurança para os cidadãos na escolha de moradias ou hospedagens na grande capital. Reunimos todas as informações essenciais da vizinhança em um só lugar, tornando a decisão de onde se hospedar ou morar simples, rápida e transparente.
 
-A solução possui funcionalidades como a simulação do cálculo da estabilidade do sinal, o nível de risco de interferência causada pelos detritos e pela atividade orbital, a emissão de relatórios e alertas para cada simulação, o histórico de relatórios e o salvamento dos relatórios em arquivos.
-
----
-
-## 📈 Objetivo da Solução
-
-O objetivo do **NebulaNoise** é simular e monitorar possíveis interferências em sinais de sistemas de comunicação via satélite. Causadas pelo aumento de objetos na órbita terrestre e pelo aumento da atividade orbital, tais interferências ocorrem devido à crescente de explorações e pesquisas espaciais.
-
-O NebulaNoise busca:
-
-* Simular cenários de emissão de sinais via satélite;
-* Calcular a estabilidade dos sinais eletromagnéticos, considerando o nível de atividade orbital e a densidade de objetos;
-* Classificar o nível de risco de interferência nos sinais;
-* Gerar alertas e recomendações preventivas;
-* Registrar simulações realizadas por meio de relatórios e logs.
+A solução possui funcionalidades como a utilização de APIs e Web Crawlers para coletar dados das linhas e estações de metrô, pontos de ônibus, estabelecimentos de saúde, delegacias de polícia e seus casos reportados e dados populacionais e de risco hidrológico (inundações e alagamentos) de subprefeituras e distritos de São Paulo.
 
 ---
 
-## ⚙ Tecnologias e Bibliotecas Utilizadas
+## 📈 Justificativa e Objetivo da Solução
+
+A escolha de um local para morar ou se hospedar em grandes cidades é marcada pela falta de transparência sobre fatores cruciais, como segurança, acessibilidade a transportes e ruído urbano. O projeto **TodaSP** justifica-se ao centralizar esses indicadores essenciais em uma única plataforma, eliminando surpresas desagradáveis e permitindo que o usuário tome decisões mais seguras, assertivas e conscientes antes de assinar qualquer contrato ou reserva.
+
+---
+
+## ⚙ Tecnologias, Fontes de Dados e Bibliotecas Utilizadas
 
 ### Linguagem
 
@@ -32,106 +28,305 @@ O NebulaNoise busca:
 
 * PyCharm
 
-### Bibliotecas
+### Banco de Dados
 
-* `os`
-* `sys`
-* `time`
-* `logging`
-* `datetime`
+* MongoDB
 
-Todas as bibliotecas utilizadas fazem parte da biblioteca padrão do Python.
+### APIs
+
+* [DEMAS - Dados Abertos](https://apidadosabertos.saude.gov.br/v1/)
+
+    `Fonte da API: CNES (Cadastro Nacional de Estabelecimentos de Saúde)`
+* [GeoSampa Metadados - Polícia Civil](https://metadados.geosampa.prefeitura.sp.gov.br/geonetwork/srv/eng/catalog.search;jsessionid=D2585C191F9FD4E123A9482ADDDCF420#/metadata/3879e65a-e9cc-4ea2-8619-2073395980cc)
+
+    `Fonte da API: SSP-SP (Secretaria da Segurança Pública do Estado de São Paulo)`
+* [Piranot - Segurança pública em SP: ocorrências por município.](https://www.piranot.com.br/datax/docs/dataset-seguranca-ssp-sp)
+
+    `Fonte da API: SSP-SP (Secretaria da Segurança Pública do Estado de São Paulo)`
+* [Transitland - São Paulo Transporte](https://www.transit.land/data/feeds/f-6gy-sptrans)
+
+    `Fonte da API: GTFS (General Transit Feed Specification) da SPTrans`
+* [Trilhos Agora - API do metrô e trens de São Paulo](https://trilhosagora.com.br/desenvolvedores)
+
+    `Fontes da API: Metrô de São Paulo, CPTM, Trivia Trens, Motiva Trilhos, TIC Trens e LinhaUni.`
+
+### Demais Fontes de Dados
+
+* [ObservaSampa](https://observasampa.prefeitura.sp.gov.br/index.php?page=dadosabertos)
+
+### Bibliotecas Externas (requirements.txt)
+
+* `geopy`
+* `scrapy`
+* `pymongo`
+* `twisted`
+* `pydantic`
+* `requests`
+* `tabulate`
+* `curl_cffi`
+* `itemadapter`
+* `python-dotenv`
 
 ---
+## ✅ Funcionamento da Solução
 
-## ⚒ Funcionamento da Solução
+O sistema se baseia em um menu com 7 opções no total, com o qual o usuário pode interagir e escolher qual funcionalidade irá utilizar.
 
-O sistema solicita ao usuário três parâmetros:
+### [1] Verificar Linhas de Metrô
 
-1. Intensidade do sinal (0 a 100);
-2. Densidade de objetos em órbita (0 a 100);
-3. Velocidade da atividade orbital (0 a 100).
+Coleta dados de todas as linhas de metrô de São Paulo, através da API Trilhos Agora, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
 
-Com base nesses valores, é calculada a estabilidade do sinal utilizando a fórmula:
+```
+{
+  "_id": {}, - ID ÚNICO DO MONGODB
+  "numero_linha": 1, - NÚMERO DA LINHA DE METRÔ
+  "cor": "#005ba8", - CÓDIGO HEXADECIMAL QUE REPRESENTA A COR DA LINHA
+  "data_atualizacao": "2026-11-16T20:59:03-03:00", - DATA DA ATUALIZAÇÃO DOS DADOS
+  "nome": "Azul", - NOME CURTO DA LINHA
+  "operadora": "Metrô de São Paulo", - OPERADORA RESPONSÁVEL PELA LINHA
+  "rotulo": "Linha 2-Verde", - NOME COMPLETO DA LINHA (número + cor)
+  "status": "Operação Normal", - ESTADO DA OPERAÇÃO DA LINHA
+  "rota": [ - LISTA DAS ESTAÇÕES QUE A LINHA PASSA
+      {
+        "posicao": 1, - QUAL A POSIÇÃO DA ESTAÇÃO NO TRAJETO DA LINHA
+        "nome": "Vila Prudente" - NOME DA ESTAÇÃO
+      },
+      {...}
+  ]
+}
+```
 
-`E = I / (1 + 0.7(D/100) + 0.4(V/100))`
+### [2] Coletar Estações de Metrô
+
+Coleta dados de todas as estações de metrô de São Paulo, através de um Web Crawler que percorre o site da Trilhos Agora buscando informações, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
+
+```
+{
+  "_id": {}, - ID ÚNICO DO MONGODB
+  "nome": "Estação Palmeiras-Barra Funda", - NOME DA ESTAÇÃO
+  "data_informacoes": "2026-11-16 21:32:56", - DATA DA COLETA DOS DADOS
+  "endereco": "Av. Auro Soares de Moura Andrade, 664 - Barra Funda, São Paulo - SP", - ENDEREÇO DA ESTAÇÃO
+  "horario_funcionamento": "Das 04:40 às 00:00", - HORÁRIO DE FUNCIONAMENTO DA ESTAÇÃO
+  "integracoes": "Metrô (L3), CPTM/ViaMobilidade (L7, L8, L10), Terminal Rodoviário, Ônibus", - POSSÍVEIS INTEGRAÇÕES E BALDEAÇÕES A SEREM FEITAS DA ESTAÇÃO
+  "linhas": [ - LISTA DAS LINHAS PRESENTES NA ESTAÇÂO
+    "Linha 3-Vermelha", - NOMES DAS LINHAS
+    "Linha 7-Rubi",
+    "Linha 8-Diamante",
+    "Linha 10-Turquesa",
+    "Expresso Aeroporto"
+  ]
+}
+```
+
+### [3] Coletar Pontos de Ônibus
+
+Coleta dados de todos os pontos de ônibus de São Paulo, através da API Transitland, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
+
+```
+{
+  "_id": {}, - ID ÚNICO DO MONGODB
+  "id_ponto": "18848", - NÚMERO DE IDENTIFICAÇÃO DO PONTO DE ÔNIBUS
+  "latitude": -23.554007, - LATITUDE DA LOCALIZAÇÃO DO PONTO DE ÔNIBUS
+  "linhas": [ - LISTA CONTENDO AS LINHAS QUE PASSAM NO PONTO DE ÔNIBUS
+    {
+      "id_linha": "METRÔ L2", - IDENTIFICAÇÃO DA LINHA DE ÔNIBUS
+      "nome_completo": "VILA MADALENA - VILA PRUDENTE", - NOME COMPLETO DA LINHA DO ÔNIBUS
+      "nome_curto": "METRÔ L2" - NOME CURTO DA LINHA DO ÔNIBUS
+    }
+  ],
+  "longitude": -46.671097, - LONGITUDE DA LOCALIZAÇÃO DO PONTO DE ÔNIBUS
+  "nome": "Clínicas" - NOME DO PONTO DE ÔNIBUS
+}
+```
+
+### [4] Verificar Delegacias de polícia
+
+Coleta dados de todas as delegacias de polícia de São Paulo, através da API WFS GeoSampa e da API Piranot, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
+
+```
+{
+  "_id": {}, - ID ÚNICO DO MONGODB
+  "numero_dp": 1, - NÚMERO DE IDENTIFICAÇÃO DA DELEGACIA
+  "classe": "POLICIA CIVIL", - TIPO DE POLÍCIA QUE ATENDE À DELEGACIA
+  "endereco": "RUA DA GLÓRIA, 410", - ENDEREÇO DA DELEGACIA
+  "nome": "1° DP - Liberdade", - NOME COMPLETO DA DELEGACIA
+  "casos": [ - LISTA DE CASOS REGISTRADOS DE CADA DELEGACIA, SEPARADA POR NATUREZA DO CRIME
+    {
+      "id_natureza": 21, - NÚMERO DE IDENTIFICAÇÃO DA NATUREZA DO CRIME
+      "natureza": "FURTO - OUTROS", - NATUREZA DO CRIME
+      "quantidade_ultimo_mes": 679, - QUANTIDADE REGISTRADA NO ÚLTIMO MÊS
+      "quantidade_ultimo_ano": 5960, - QUANTIDADE REGISTRADA NO ANO
+      "ano": 2026 - ANO REFERENTE AOS DADOS
+    },
+    {}
+  ]
+}
+```
+
+### [5] Coletar Estabelecimentos de Saúde
+
+Coleta dados de todos os estabelecimentos de saúde de São Paulo, através da API Dados Abertos, e os armazena no banco de dados seguindo a seguinte estrutura em JSON:
+
+```
+{
+  "_id": {} - ID ÚNICO DO MONGODB
+  "cnes_id": 34673, - NÚMERO DE IDENTIFICAÇÃO DO ESTABELECIMENTO
+  "bairro": "PLANALTO PAULISTA", - BAIRRO DO ESTABELECIMENTO
+  "cep": "04058000", - CEP DO ESTABELECIMENTO
+  "codigo_natureza_juridica": "2062", - CÓDIGO DE IDENTIFICAÇÃO DA NATUREZA JURÍDICA DO ESTABELECIMENTO
+  "codigo_tipo": 7, - CÓDIGO DE IDENTIFICAÇÃO DO TIPO DO ESTABELECIMENTO
+  "data_informacoes": "2026-02-27", - DATA DA ATUALIZAÇÃO DOS DADOS
+  "endereco": "ALAMEDA DOS APETUPAS", - RUA/AVENIDA DO ESTABELECIMENTO
+  "esfera_administrativa": "MUNICIPAL", - ESFERA ADMINISTRATIVA DO ESTABELECIMENTO
+  "latitude": -23.61444663731964, - LATITUDE DA LOCALIZAÇÃO DO ESTABELECIMENTO
+  "longitude": -46.64930028465461, - LONGITUDE DA LOCALIZAÇÃO DO ESTABELECIMENTO
+  "natureza_juridica": "PRIVATE", - NATUREZA JURÍDICA DO ESTABELECIMENTO
+  "nome_fantasia": "API ASSISTENCIA PSIQUIATRICA INTEGRADA", - NOME FANTASIA DO ESTABELECIMENTO
+  "numero": "297", - NÚMERO DO ESTABELECIMENTO
+  "razao_social": "CLH ASSISTENCIA PSIQUIATRICA LTDA EM RECUPERACAO JUDICIAL", - RAZÃO SOCIAL DO ESTABELECIMENTO
+  "tipo": "Hospital" - TIPO DO ESTABELECIMENTO
+}
+```
+
+Todos os estabelecimentos coletados estão em um destes tipos:
+
+* `Centro de Parto Normal`
+* `Clínica/Diagnóstico`
+* `Farmácia`
+* `Hospital`
+* `Posto de Saúde`
+* `Pronto Atendimento`
+* `Pronto Socorro`
+* `Unidade Básica de Saúde`
+
+### [6] Coletar dados de população e alagamentos de distritos e subprefeituras de São Paulo
+
+Coleta dados populacionais e de risco hidrológico (inundações e alagamentos) de todos os distritos e subprefeituras de São Paulo, através dos indicadores disponíveis no arquivo "ObservaSampaDadosAbertosIndicadores.json", fornecido pelo [Observatório de Indicadores da Cidade de São Paulo (ObservaSampa)](https://observasampa.prefeitura.sp.gov.br/index.php), e os armazena no banco de dados seguindo as seguintes estruturas em JSON:
+
+#### SUBPREFEITURAS
+
+```
+{
+  "_id": {} - ID ÚNICO DO MONGODB
+  "nome": "BUTANTÃ", - NOME DA SUBPREFEITURA
+  "anos_informacoes": [ - LISTA QUE GUARDA OS ANOS DAS INFORMAÇÕES
+    2025
+  ],
+  "area_risco_hidrologico": 66481.57 - ÁREA DE RISCO HIDROLÓGICO DE CADA SUBPREFEITURA EM m²
+}
+```
+
+#### DISTRITOS
+
+```
+{
+  "_id": {} - ID ÚNICO DO MONGODB
+  "nome": "Campo Grande", - NOME DO DISTRITO
+  "anos_informacoes": [ - LISTA QUE GUARDA OS ANOS DAS INFORMAÇÕES
+    2023,
+    2024
+  ],
+  "casos_alagamentos": 13, - NÚMERO DE OCORRÊNCIAS DE ALAGAMENTOS E INUNDAÇÕES ATENDIDAS
+  "nivel_risco_hidrologico": "Alto", - NÍVEL DE RISCO HIDROLÓGICO NO DISTRITO
+  "populacao": 118297, - POPULAÇÃO TOTAL DO DISTRITO
+  "populacao_criancas": 16128, - POPULAÇÃO DE CRIANÇAS DO DISTRITO
+  "populacao_idosa": 27275, - POPULAÇÃO DE IDOSOS DO DISTRITO
+  "risco_hidrologico": 1.1 - RISCO HIDROLÓGICO NO DISTRITO
+}
+```
+
+#### Cálculo do Risco Hidrológico por Distrito
+
+O Risco Hidrológico por distrito é calculado através da seguinte fórmula:
+
+`R = (A + I)/P * 10000`
 
 Onde:
+* R é o Risco Hidrológico
+* A são as ocorrências de alagamentos atendidas
+* I são as ocorrências de inundações atendidas
+* P é a população total do distrito
 
-* **E** = Estabilidade do sinal;
-* **I** = Intensidade do sinal;
-* **D** = Densidade de objetos em órbita;
-* **V** = Velocidade da atividade orbital.
+Portanto, o resultado representa a quantidade de ocorrências a cada 10.000 habitantes do distrito e é separado entre os seguintes níveis:
 
-Após o cálculo, o sistema:
+* `Muito Baixo`
+* `Baixo`
+* `Moderado`
+* `Alto`
 
-* Classifica o risco como **Baixo**, **Moderado** ou **Alto**;
-* Gera recomendações operacionais;
-* Armazena a simulação no histórico;
-* Permite salvar relatórios em arquivos TXT;
-* Registra eventos e alertas em arquivos de log.
+Os limites dos níveis são definidos estatisticamente, através de quartils, que dividem a distribuição dos valores de risco em quatro intervalos. Para isso, é utilizada a função quantiles(), disponível na biblioteca nativa statistics do Python, com o método inclusive.
 
----
-
-## ✅ Funcionalidades
-
-### [1] O que é NebulaNoise?
-
-Exibe um texto de 5 linhas informando o que é a solução.
-
-### [2] Simular interferência orbital de sinal
-
-Permite executar análises utilizando parâmetros definidos pelo usuário.
-
-### [3] Histórico de Simulações
-
-Armazena todas as simulações realizadas durante a execução do programa.
-
-### [4] Salvar relatórios
-
-Permite salvar:
-
-* A última análise realizada;
-* Todo o histórico de análises.
-
-### [5] Verificar emissão de alertas por simulação
-
-Identifica, no histórico, simulações de alto risco e informa se alertas foram emitidos.
-
-### [6] Sair
+### [0] Sair
 
 Encerra o sistema.
-
-### Registro de Logs
-
-Armazena eventos importantes em:
-
-`logs/logs.txt`
-
----
 
 ## 🏗 Estrutura do Projeto
 
 ```
-GS_NebulaNoise/
+TodaSP/
 │
-├── main.py
-|
-├── classes/
+├── API/
+│   ├── DadosAbertosAPI.py
+│   ├── GeoSampaWFS.py
+│   ├── PiranotAPI.py
+│   ├── TransitlandAPI.py
+│   └── TrilhosAgoraAPI.py
+│
+├── Database/
+│   └── MongoDB.py
+│
+├── Model/
+│   ├── GeographicalData/
+│   │   ├── District.py
+│   │   └── Subprefecture.py
+│   │
+│   ├── HealthData/
+│   │   └── HealthFacility.py
+│   │
+│   ├── PoliceData/
+│   │   ├── PoliceReport.py
+│   │   └── PoliceStation.py
+│   │
+│   ├── PublicTransportData/
+│   │   ├── BusStation.py
+│   │   ├── SubwayLine.py
+│   │   └── SubwayStation.py
+│   │
 │   └── MenuManager.py
-│   └── Simulation.py
-│   └── Log.py
 │
-├── logs/ (gerada automaticamente)
-│   └── logs.txt
+├── Reader/
+│   └── ObservaSampaReader.py
 │
-├── relatorios/ (gerada automaticamente)
-│   └── relatorio_*.txt
+├── Scrapy/
+│   ├── Scrapy/
+│   │   ├── spiders/
+│   │   │   ├── SubwayStationsSpider.py
+│   │   │   └── __init__.py
+│   │   │
+│   │   ├── __init__.py
+│   │   ├── items.py
+│   │   ├── middlewares.py
+│   │   ├── pipelines.py
+│   │   └── settings.py
+│   │
+│   └── scrapy.cfg
 │
-└── README.md
+├── Utils/
+│   └── Utils.py
+│
+├── data/
+│   └── ObservaSampaDadosAbertosIndicadoresJSON.json
+│
+├── readme_files/
+│   └── TodaSP_Logo.png
+│
+├── .gitignore
+├── README.md
+├── main.py
+└── requirements.txt
 ```
 
-A pasta "assets" possui apenas conteúdos para o README.md.
+A pasta "readme_files" possui apenas conteúdos para o README.md.
 
 ---
 
@@ -140,16 +335,56 @@ A pasta "assets" possui apenas conteúdos para o README.md.
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/DAC-Developers-And-Coders/GS_NebulaNoise
+git clone https://github.com/DAC-Developers-And-Coders/TodaSP
 ```
 
 ### 2. Acesse a pasta do projeto
 
 ```bash
-cd GS_NebulaNoise
+cd TodaSP
 ```
 
-### 3. Execute o programa
+### 3. Crie e ative um ambiente virtual
+
+#### Windows
+
+```bash
+python -m venv .venv
+```
+
+ou
+
+```bash
+py -m venv .venv
+```
+
+Ative o ambiente virtual:
+
+```bash
+.\.venv\Scripts\activate
+```
+
+#### Linux/MacOS
+
+```bash
+python3 -m venv .venv
+```
+
+Ative o ambiente virtual:
+
+```bash
+source .venv/bin/activate
+```
+
+### 4. Instale as dependências do projeto
+
+Com o ambiente virtual ativado, execute:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### 5. Execute o programa
 
 #### Windows
 
@@ -163,52 +398,11 @@ ou
 py main.py
 ```
 
-#### Linux
+#### Linux/MacOS
 
 ```bash
 python3 main.py
 ```
-
----
-
-## 💿 Exemplo de Uso
-
-### Menu
-
-```
-======NebulaNoise Menu======
-| [1] O que é NebulaNoise?
-| [2] Simular interferência orbital de sinal
-| [3] Histórico de simulações
-| [4] Salvar relatórios
-| [5] Verificar emissão de alertas por simulação
-| [6] Sair
-```
-
-#### [1] O que é NebulaNoise?
-
-![1](assets/1.gif)
-
-#### [2] Simular interferência orbital de sinal
-
-![2](assets/2.gif)
-
-#### [3] Histórico de simulações
-
-![3](assets/3.gif)
-
-
-#### [4] Salvar relatórios
-
-![4](assets/4.gif)
-
-#### [5] Verificar emissão de alertas por simulação
-
-![5](assets/5.gif)
-
-#### [6] Sair
-
-![6](assets/6.gif)
 
 ---
 
